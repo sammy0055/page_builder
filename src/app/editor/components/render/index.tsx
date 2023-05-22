@@ -2,11 +2,34 @@ import { useNode, useEditor } from "@craftjs/core";
 import { ROOT_NODE } from "@craftjs/utils";
 import React, { useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
-import styles from "./render.module.css";
+import { CgArrowUp } from "react-icons/cg";
+import styled from "styled-components";
 
-// import ArrowUp from "../../../../../public/icons/arrow-up.svg";
-// import Delete from "../../../../../public/icons/delete.svg";
-// import Move from "../../../../../public/icons/move.svg";
+const IndicatorDiv = styled.div`
+  height: 30px;
+  margin-top: -29px;
+  font-size: 12px;
+  line-height: 12px;
+  background-color: gray;
+
+  svg {
+    fill: #fff;
+    width: 15px;
+    height: 15px;
+  }
+`;
+
+const Btn = styled.a`
+  padding: 0 0px;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  > div {
+    position: relative;
+    top: -50%;
+    left: -50%;
+  }
+`;
 
 export const RenderNode = ({ render }: any) => {
   const { id } = useNode();
@@ -24,7 +47,7 @@ export const RenderNode = ({ render }: any) => {
     parent,
   } = useNode((node) => ({
     isHover: node.events.hovered,
-    dom: node.dom as HTMLElement,
+    dom: node.dom,
     name: node.data.custom.displayName || node.data.displayName,
     moveable: query.node(node.id).isDraggable(),
     deletable: query.node(node.id).isDeletable(),
@@ -55,7 +78,7 @@ export const RenderNode = ({ render }: any) => {
     const { current: currentDOM } = currentRef;
 
     if (!currentDOM) return;
-    const { top, left } = getPos(dom);
+    const { top, left } = getPos(dom!);
     currentDOM.style.top = top;
     currentDOM.style.left = left;
   }, [dom, getPos]);
@@ -64,6 +87,7 @@ export const RenderNode = ({ render }: any) => {
     document
       .querySelector(".craftjs-renderer")
       ?.addEventListener("scroll", scroll);
+
     return () => {
       document
         .querySelector(".craftjs-renderer")
@@ -71,57 +95,53 @@ export const RenderNode = ({ render }: any) => {
     };
   }, [scroll]);
 
-  const pageContainerNode: any = document.querySelector(".page-container");
   return (
     <>
       {isHover || isActive
         ? ReactDOM.createPortal(
-            <div
-              className={`${styles.indicatorDiv} px-2 py-2 text-white bg-primary fixed flex items-center`}
-              ref={currentRef as any}
-              style={{
-                left: getPos(dom).left,
-                top: getPos(dom).top,
-                zIndex: 9999,
+          <IndicatorDiv
+          ref={() => currentRef}
+          className="px-2 py-2 text-white bg-primary fixed flex items-center"
+          style={{
+            left: getPos(dom!).left,
+            top: getPos(dom!).top,
+            zIndex: 9999,
+          }}
+        >
+          <h2 className="flex-1 mr-4">{name}</h2>
+          {moveable ? (
+            <Btn className="mr-2 cursor-move" ref={() => drag}>
+              <CgArrowUp />
+            </Btn>
+          ) : null}
+          {id !== ROOT_NODE && (
+            <Btn
+              className="mr-2 cursor-pointer"
+              onClick={() => {
+                actions.selectNode(parent!);
               }}
             >
-              <h2 className="flex-1 mr-4">{name}</h2>
-              {moveable ? (
-                <div
-                  className={`${styles.indicatorDiv} mr-2 cursor-move`}
-                  ref={() => drag}
-                >
-                  move
-                </div>
-              ) : null}
-              {id !== ROOT_NODE && (
-                <div
-                  className={`${styles.indicatorDiv} mr-2 cursor-pointer`}
-                  onClick={() => {
-                    actions.selectNode(parent!);
-                  }}
-                >
-                  arrowUp
-                  {/* <ArrowUp /> */}
-                </div>
-              )}
-              {deletable ? (
-                <div
-                  className={`${styles.indicatorDiv} mr-2 cursor-pointer`}
-                  onMouseDown={(e: React.MouseEvent) => {
-                    e.stopPropagation();
-                    actions.delete(id);
-                  }}
-                >
-                  delete
-                  {/* <Delete /> */}
-                </div>
-              ) : null}
-            </div>,
-            pageContainerNode
+              <CgArrowUp />
+            </Btn>
+          )}
+          {deletable ? (
+            <Btn
+              className="cursor-pointer"
+              onMouseDown={(e: React.MouseEvent) => {
+                e.stopPropagation();
+                actions.delete(id);
+              }}
+            >
+              <CgArrowUp />
+            </Btn>
+          ) : null}
+        </IndicatorDiv>,
+            document.querySelector(".page-container") as
+              | Element
+              | DocumentFragment
           )
         : null}
-       {render}
+      {render}
     </>
   );
 };

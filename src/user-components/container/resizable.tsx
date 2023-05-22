@@ -39,7 +39,7 @@ export const Resizable = ({ setProp }: ResizableProps) => {
     window.addEventListener("mouseup", handleMouseUp);
   };
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} style={{border:"1px solid red"}}>
       <div
         className={`${styles["resize-handle"]} ${styles["top-left"]}`}
         onMouseDown={(e) => handleMouseDown(e, "nw")}

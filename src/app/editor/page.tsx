@@ -1,7 +1,7 @@
 "use client";
 import SideBar from "./components/side-bar";
 import styles from "./styles/main.module.css";
-import { Editor, Frame } from "@craftjs/core";
+import { Editor, Frame, Element } from "@craftjs/core";
 import Header from "./header";
 import { NewsBar } from "@/components/newsbar";
 import { Typography } from "@/user-components/typography";
@@ -25,12 +25,13 @@ export default function editor() {
           HeroSection,
           Home,
         }}
+        // onRender={RenderNode}
       >
         {/* <LoadStateNodes /> */}
         <Header />
         <div className={styles.main}>
           <Frame>
-            <section className={styles.main_page}>
+            <section className={`${styles.main_page} page-container`}>
               <Container>
                 <p>welcome</p>
                 <p>welcome</p>
