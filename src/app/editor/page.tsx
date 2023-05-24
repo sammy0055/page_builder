@@ -10,6 +10,14 @@ import { RenderNode } from "./components/render";
 import { useEditorContext } from "../context/editor-context";
 import { ImageWrapper } from "@/user-components/Image";
 import Image from "next/image";
+import styled from "styled-components";
+
+const View = styled.div`
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  background-color: rgb(245, 245, 245);
+  height: 93vh;
+`;
 export default function Editor() {
   return (
     <>
@@ -28,7 +36,7 @@ export default function Editor() {
       >
         {/* <LoadStateNodes /> */}
         <Header />
-        <div className={styles.main}>
+        <View>
           <Frame>
             <section className={`${styles.main_page} page-container`}>
               <Element
@@ -39,7 +47,7 @@ export default function Editor() {
             </section>
           </Frame>
           <SideBar />
-        </div>
+        </View>
       </Editors>
     </>
   );

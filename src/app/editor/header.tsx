@@ -107,7 +107,7 @@ const NavIcons: React.FC<NavIconsProps> = ({
     <div onClick={handler}>
       <Tooltip content={TooltipContent} placement="bottom">
         <IconWrapper disabled={disabled}>
-          {<IconComponent size={20} color={disabled && "gray"} />}
+          {<IconComponent size={20} color={disabled ? "gray" : ""} />}
         </IconWrapper>
       </Tooltip>
     </div>
