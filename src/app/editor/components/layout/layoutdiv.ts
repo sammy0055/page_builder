@@ -10,6 +10,7 @@ export const BtnWrapper = styled.button<BtnWrapperProps>`
   &:focus {
     background-color: gray;
   }
+  width:100%;
 `;
 
 export const DisplayContainer = styled.div`

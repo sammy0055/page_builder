@@ -1,25 +1,6 @@
 import { useCustomStyles } from "@/hooks/custom-styles";
-import { AiFillEyeInvisible } from "react-icons/ai";
-import { CgDisplayFlex } from "react-icons/cg";
-import { FiGrid } from "react-icons/fi";
-import { RxBoxModel } from "react-icons/rx";
-import {
-  MdOutlineAlignVerticalBottom,
-  MdOutlineAlignVerticalTop,
-  MdOutlineAlignHorizontalRight,
-  MdOutlineAlignVerticalCenter,
-} from "react-icons/md";
-import {
-  LuAlignHorizontalJustifyStart,
-  LuAlignHorizontalJustifyEnd,
-  LuAlignVerticalJustifyCenter,
-  LuAlignHorizontalJustifyCenter,
-} from "react-icons/lu";
-
-//modules
 import { Chip } from "../chip";
 import { BtnWrapper, DisplayContainer, IconBtnWrapper } from "./layoutdiv";
-import { IconBtn } from "../iconWrapper/icon-btn";
 import {
   FlexProperties,
   FlexPropertiesEnum,
@@ -33,11 +14,7 @@ import { AlignItems } from "./align-items";
 import { DisplayBox } from "./display";
 
 export const ContainerLayout = () => {
-  const {
-    handleChangeLayout,
-    flexDirection,
-    flexWrap
-  } = useCustomStyles();
+  const { handleChangeLayout, flexDirection, flexWrap } = useCustomStyles();
 
   const handleChange = (
     name: layoutProperties,
@@ -67,15 +44,20 @@ export const ContainerLayout = () => {
 
       <AlignItems />
       <JustifyContent />
+      
       <DisplayContainer>
         <Chip label="Wrap" />
         <IconBtnWrapper>
-          <BtnWrapper
-            isSelected={flexWrap === FlexPropertiesEnum.Nowrap}
-            onClick={() => handleChange("flexWrap", FlexPropertiesEnum.Nowrap)}
-          >
-            Don't wrap
-          </BtnWrapper>
+          <Tooltip content={"well come on board"}>
+            <BtnWrapper
+              isSelected={flexWrap === FlexPropertiesEnum.Nowrap}
+              onClick={() =>
+                handleChange("flexWrap", FlexPropertiesEnum.Nowrap)
+              }
+            >
+              Don't wrap
+            </BtnWrapper>
+          </Tooltip>
           <Tooltip content={"well come on board"}>
             <BtnWrapper
               isSelected={flexWrap === FlexPropertiesEnum.Wrap}
