@@ -28,15 +28,15 @@ import {
   layoutProperties,
 } from "@/types";
 import Tooltip from "../tooltip";
+import { JustifyContent } from "./justify-content";
+import { AlignItems } from "./align-items";
+import { DisplayBox } from "./display";
 
 export const ContainerLayout = () => {
   const {
     handleChangeLayout,
-    display,
     flexDirection,
-    alignItems,
-    justifyContent,
-    flexWrap,
+    flexWrap
   } = useCustomStyles();
 
   const handleChange = (
@@ -46,39 +46,7 @@ export const ContainerLayout = () => {
 
   return (
     <>
-      <DisplayContainer>
-        <Chip label="Display" />
-        <IconBtnWrapper>
-          <IconBtn
-            isSelected={display === displayValues.block}
-            onClick={() => handleChange("display", displayValues.block)}
-          >
-            <RxBoxModel size={15} />
-          </IconBtn>
-
-          <IconBtn
-            isSelected={display === displayValues.flex}
-            onClick={() => handleChange("display", displayValues.flex)}
-          >
-            <CgDisplayFlex size={15} />
-          </IconBtn>
-
-          <IconBtn
-            isSelected={display === displayValues.grid}
-            onClick={() => handleChange("display", displayValues.grid)}
-          >
-            <FiGrid size={15} />
-          </IconBtn>
-
-          <IconBtn
-            isSelected={display === displayValues.auto}
-            onClick={() => handleChange("display", displayValues.auto)}
-          >
-            <AiFillEyeInvisible size={15} />
-          </IconBtn>
-        </IconBtnWrapper>
-      </DisplayContainer>
-
+      <DisplayBox />
       <DisplayContainer>
         <Chip label="Direction" />
         <IconBtnWrapper>
@@ -97,82 +65,8 @@ export const ContainerLayout = () => {
         </IconBtnWrapper>
       </DisplayContainer>
 
-      <DisplayContainer>
-        <Chip label="Align" />
-        <IconBtnWrapper>
-          <IconBtn
-            isSelected={alignItems === FlexPropertiesEnum.FlexStart}
-            onClick={() =>
-              handleChange("alignItems", FlexPropertiesEnum.FlexStart)
-            }
-          >
-            <MdOutlineAlignVerticalTop size={15} />
-          </IconBtn>
-          <IconBtn
-            isSelected={alignItems === FlexPropertiesEnum.Center}
-            onClick={() =>
-              handleChange("alignItems", FlexPropertiesEnum.Center)
-            }
-          >
-            <MdOutlineAlignVerticalCenter size={15} />
-          </IconBtn>
-          <IconBtn
-            isSelected={alignItems === FlexPropertiesEnum.FlexEnd}
-            onClick={() =>
-              handleChange("alignItems", FlexPropertiesEnum.FlexEnd)
-            }
-          >
-            <MdOutlineAlignVerticalBottom size={15} />
-          </IconBtn>
-          <IconBtn
-            isSelected={alignItems === FlexPropertiesEnum.Baseline}
-            onClick={() =>
-              handleChange("alignItems", FlexPropertiesEnum.Baseline)
-            }
-          >
-            <MdOutlineAlignHorizontalRight size={15} />
-          </IconBtn>
-        </IconBtnWrapper>
-      </DisplayContainer>
-
-      <DisplayContainer>
-        <Chip label="Justify" />
-        <IconBtnWrapper>
-          <IconBtn
-            isSelected={justifyContent === FlexPropertiesEnum.FlexStart}
-            onClick={() =>
-              handleChange("justifyContent", FlexPropertiesEnum.FlexStart)
-            }
-          >
-            <LuAlignHorizontalJustifyStart size={15} />
-          </IconBtn>
-          <IconBtn
-            isSelected={justifyContent === FlexPropertiesEnum.FlexEnd}
-            onClick={() =>
-              handleChange("justifyContent", FlexPropertiesEnum.FlexEnd)
-            }
-          >
-            <LuAlignHorizontalJustifyEnd size={15} />
-          </IconBtn>
-          <IconBtn
-            isSelected={justifyContent === FlexPropertiesEnum.Center}
-            onClick={() =>
-              handleChange("justifyContent", FlexPropertiesEnum.Center)
-            }
-          >
-            <LuAlignVerticalJustifyCenter size={15} />
-          </IconBtn>
-          <IconBtn
-            isSelected={justifyContent === FlexPropertiesEnum.SpaceAround}
-            onClick={() =>
-              handleChange("justifyContent", FlexPropertiesEnum.SpaceAround)
-            }
-          >
-            <LuAlignHorizontalJustifyCenter size={15} />
-          </IconBtn>
-        </IconBtnWrapper>
-      </DisplayContainer>
-
+      <AlignItems />
+      <JustifyContent />
       <DisplayContainer>
         <Chip label="Wrap" />
         <IconBtnWrapper>
@@ -183,13 +77,13 @@ export const ContainerLayout = () => {
             Don't wrap
           </BtnWrapper>
           <Tooltip content={"well come on board"}>
-          <BtnWrapper
-            isSelected={flexWrap === FlexPropertiesEnum.Wrap}
-            onClick={() => handleChange("flexWrap", FlexPropertiesEnum.Wrap)}
-          >
-            Wrap
+            <BtnWrapper
+              isSelected={flexWrap === FlexPropertiesEnum.Wrap}
+              onClick={() => handleChange("flexWrap", FlexPropertiesEnum.Wrap)}
+            >
+              Wrap
             </BtnWrapper>
-            </Tooltip>
+          </Tooltip>
         </IconBtnWrapper>
       </DisplayContainer>
     </>
