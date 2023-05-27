@@ -18,9 +18,26 @@ export enum displayValues {
   block = "block",
   auto = "auto",
   row = "row",
-  column = "column"
+  column = "column",
 }
-export type layoutProperties = "display" | "justifyContent" | "alignItems" | "flexDirection"
+export enum FlexPropertiesEnum {
+  FlexStart = "flex-start",
+  FlexEnd = "flex-end",
+  Center = "center",
+  SpaceAround = "space-around",
+  Baseline = "baseline",
+  Block = "block",
+  Row = "row",
+  Column = "column",
+  Wrap = "wrap",
+  Nowrap = "nowrap",
+}
+export type layoutProperties =
+  | "display"
+  | "justifyContent"
+  | "alignItems"
+  | "flexDirection"
+  | "flexWrap";
 export type FlexProperties =
   | "flex-start"
   | "flex-end"
@@ -29,7 +46,9 @@ export type FlexProperties =
   | "baseline"
   | "block"
   | "row"
-  | "column";
+  | "column"
+  | "wrap"
+  | "nowrap";
 export type Styles = Partial<Spacing> & {
   width?: number;
   height?: string;
@@ -39,4 +58,5 @@ export type Styles = Partial<Spacing> & {
   justifyContent?: FlexProperties;
   alignItems?: FlexProperties;
   flexDirection?: "row" | "column" | "auto";
+  flexWrap?: "wrap" | "nowrap";
 };

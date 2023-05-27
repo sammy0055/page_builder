@@ -13,6 +13,7 @@ export const ContainerDefaultProps = {
   backgroundColor: "auto",
   display: "auto",
   flexDirection: "auto",
+  flexWrap:"nowrap"
 };
 
 export const Container = (props: ContainerProps) => {
@@ -33,6 +34,7 @@ export const Container = (props: ContainerProps) => {
     justifyContent: props?.justifyContent || "auto",
     alignItems: props?.alignItems || "auto",
     flexDirection: props?.flexDirection || "auto",
+    flexWrap: props?.flexWrap || "nowrap",
   };
 
   const {
@@ -43,7 +45,7 @@ export const Container = (props: ContainerProps) => {
   return (
     <>
       <div style={css} ref={(ref: any) => connect(drag(ref))}>
-        {editable && <Resizable setProp={setProp} />}
+        {/* {editable && <Resizable setProp={setProp} />} */}
         {props.children}
       </div>
     </>

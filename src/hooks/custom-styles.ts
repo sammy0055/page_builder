@@ -22,6 +22,7 @@ export const useCustomStyles = () => {
     justifyContent,
     alignItems,
     flexDirection,
+    flexWrap
   } = useNode((node) => ({
     fontSize: node.data?.props?.fontSize as number,
     fontWeight: node.data?.props?.fontWeight as number,
@@ -41,6 +42,7 @@ export const useCustomStyles = () => {
     justifyContent: node.data.props?.justifyContent as string,
     alignItems: node.data.props?.alignItems as string,
     flexDirection: node.data.props?.flexDirection as string,
+    flexWrap: node.data.props?.flexWrap as string,
   }));
   const handleChangeSpacing = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -85,5 +87,6 @@ export const useCustomStyles = () => {
     justifyContent,
     alignItems,
     flexDirection,
+    flexWrap
   };
 };
