@@ -1,4 +1,4 @@
-import { FlexProperties, displayProperties } from "@/types";
+import { FlexProperties, displayProperties, layoutProperties } from "@/types";
 import { useNode } from "@craftjs/core";
 
 export const useCustomStyles = () => {
@@ -56,7 +56,7 @@ export const useCustomStyles = () => {
   };
 
   const handleChangeLayout = (
-    name: "display" | "justifyContent" | "alignItems" | "flexDirection",
+    name: layoutProperties,
     value: FlexProperties | displayProperties
   ) => {
     setProp((props: any) => (props[name] = value));

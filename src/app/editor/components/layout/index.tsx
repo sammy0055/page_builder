@@ -20,10 +20,21 @@ import {
 import { Chip } from "../chip";
 import { BtnWrapper, DisplayContainer, IconBtnWrapper } from "./layoutdiv";
 import { IconBtn } from "../iconWrapper/icon-btn";
-import { displayValues } from "@/types";
+import {
+  FlexProperties,
+  displayProperties,
+  displayValues,
+  layoutProperties,
+} from "@/types";
 
 export const ContainerLayout = () => {
   const { handleChangeLayout, display, flexDirection } = useCustomStyles();
+
+  const handleChange = (
+    name: layoutProperties,
+    value: FlexProperties | displayProperties
+  ) => handleChangeLayout(name, value);
+
   return (
     <>
       <DisplayContainer>
@@ -31,28 +42,28 @@ export const ContainerLayout = () => {
         <IconBtnWrapper>
           <IconBtn
             isSelected={display === displayValues.block}
-            onClick={() => handleChangeLayout("display", displayValues.block)}
+            onClick={() => handleChange("display", displayValues.block)}
           >
             <RxBoxModel size={15} />
           </IconBtn>
 
           <IconBtn
             isSelected={display === displayValues.flex}
-            onClick={() => handleChangeLayout("display", displayValues.flex)}
+            onClick={() => handleChange("display", displayValues.flex)}
           >
             <CgDisplayFlex size={15} />
           </IconBtn>
 
           <IconBtn
             isSelected={display === displayValues.grid}
-            onClick={() => handleChangeLayout("display", displayValues.grid)}
+            onClick={() => handleChange("display", displayValues.grid)}
           >
             <FiGrid size={15} />
           </IconBtn>
 
           <IconBtn
             isSelected={display === displayValues.auto}
-            onClick={() => handleChangeLayout("display", displayValues.auto)}
+            onClick={() => handleChange("display", displayValues.auto)}
           >
             <AiFillEyeInvisible size={15} />
           </IconBtn>
@@ -64,17 +75,13 @@ export const ContainerLayout = () => {
         <IconBtnWrapper>
           <BtnWrapper
             isSelected={flexDirection === displayValues.column}
-            onClick={() =>
-              handleChangeLayout("flexDirection", displayValues.column)
-            }
+            onClick={() => handleChange("flexDirection", displayValues.column)}
           >
             Horizontal
           </BtnWrapper>
           <BtnWrapper
             isSelected={flexDirection === displayValues.row}
-            onClick={() =>
-              handleChangeLayout("flexDirection", displayValues.row)
-            }
+            onClick={() => handleChange("flexDirection", displayValues.row)}
           >
             Vertical
           </BtnWrapper>

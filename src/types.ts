@@ -20,6 +20,7 @@ export enum displayValues {
   row = "row",
   column = "column"
 }
+export type layoutProperties = "display" | "justifyContent" | "alignItems" | "flexDirection"
 export type FlexProperties =
   | "flex-start"
   | "flex-end"
