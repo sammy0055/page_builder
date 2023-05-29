@@ -21,6 +21,7 @@ export const useCustomStyles = () => {
     display,
     justifyContent,
     alignItems,
+    flexDirection,
   } = useNode((node) => ({
     fontSize: node.data?.props?.fontSize as number,
     fontWeight: node.data?.props?.fontWeight as number,
@@ -39,6 +40,7 @@ export const useCustomStyles = () => {
     display: node.data.props?.display as string,
     justifyContent: node.data.props?.justifyContent as string,
     alignItems: node.data.props?.alignItems as string,
+    flexDirection: node.data.props?.flexDirection as string,
   }));
   const handleChangeSpacing = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -54,7 +56,7 @@ export const useCustomStyles = () => {
   };
 
   const handleChangeLayout = (
-    name: "display" | "justifyContent" | "alignItems",
+    name: "display" | "justifyContent" | "alignItems" | "flexDirection",
     value: FlexProperties | displayProperties
   ) => {
     setProp((props: any) => (props[name] = value));
@@ -82,5 +84,6 @@ export const useCustomStyles = () => {
     display,
     justifyContent,
     alignItems,
+    flexDirection,
   };
 };

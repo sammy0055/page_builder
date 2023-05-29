@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
-export const BtnWrapper = styled.button`
+type BtnWrapperProps = {
+  isSelected?: boolean;
+};
+export const BtnWrapper = styled.button<BtnWrapperProps>`
   padding: 7px;
   border: none;
-  background-color: lightgray;
+  background-color: ${({ isSelected }) => (isSelected ? "gray" : "lightgray")};
   &:focus {
     background-color: gray;
   }

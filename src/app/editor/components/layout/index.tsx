@@ -23,7 +23,7 @@ import { IconBtn } from "../iconWrapper/icon-btn";
 import { displayValues } from "@/types";
 
 export const ContainerLayout = () => {
-  const { handleChangeLayout, display } = useCustomStyles();
+  const { handleChangeLayout, display, flexDirection } = useCustomStyles();
   return (
     <>
       <DisplayContainer>
@@ -62,8 +62,22 @@ export const ContainerLayout = () => {
       <DisplayContainer>
         <Chip label="Direction" />
         <IconBtnWrapper>
-          <BtnWrapper>Horizontal</BtnWrapper>
-          <BtnWrapper>Vertical</BtnWrapper>
+          <BtnWrapper
+            isSelected={flexDirection === displayValues.column}
+            onClick={() =>
+              handleChangeLayout("flexDirection", displayValues.column)
+            }
+          >
+            Horizontal
+          </BtnWrapper>
+          <BtnWrapper
+            isSelected={flexDirection === displayValues.row}
+            onClick={() =>
+              handleChangeLayout("flexDirection", displayValues.row)
+            }
+          >
+            Vertical
+          </BtnWrapper>
         </IconBtnWrapper>
       </DisplayContainer>
 

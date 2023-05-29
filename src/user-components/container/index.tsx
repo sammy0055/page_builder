@@ -8,7 +8,12 @@ export interface ContainerProps extends Styles {
   children?: ReactNode;
 }
 
-export const ContainerDefaultProps = { width: 200, backgroundColor: "auto", display:"auto" };
+export const ContainerDefaultProps = {
+  width: 200,
+  backgroundColor: "auto",
+  display: "auto",
+  flexDirection: "auto",
+};
 
 export const Container = (props: ContainerProps) => {
   const editable = true;
@@ -27,6 +32,7 @@ export const Container = (props: ContainerProps) => {
     display: props?.display || "auto",
     justifyContent: props?.justifyContent || "auto",
     alignItems: props?.alignItems || "auto",
+    flexDirection: props?.flexDirection || "auto",
   };
 
   const {

@@ -17,6 +17,8 @@ export enum displayValues {
   grid = "grid",
   block = "block",
   auto = "auto",
+  row = "row",
+  column = "column"
 }
 export type FlexProperties =
   | "flex-start"
@@ -24,7 +26,9 @@ export type FlexProperties =
   | "center"
   | "space-around"
   | "baseline"
-  | "block";
+  | "block"
+  | "row"
+  | "column";
 export type Styles = Partial<Spacing> & {
   width?: number;
   height?: string;
@@ -33,4 +37,5 @@ export type Styles = Partial<Spacing> & {
   display?: displayProperties;
   justifyContent?: FlexProperties;
   alignItems?: FlexProperties;
+  flexDirection?: "row" | "column" | "auto";
 };
