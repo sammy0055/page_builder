@@ -12,6 +12,12 @@ export interface Spacing {
 }
 
 export type displayProperties = "flex" | "grid" | "none" | "auto";
+export enum displayValues {
+  flex = "flex",
+  grid = "grid",
+  block = "block",
+  auto = "auto",
+}
 export type FlexProperties =
   | "flex-start"
   | "flex-end"

@@ -20,6 +20,7 @@ import {
 import { Chip } from "../chip";
 import { BtnWrapper, DisplayContainer, IconBtnWrapper } from "./layoutdiv";
 import { IconBtn } from "../iconWrapper/icon-btn";
+import { displayValues } from "@/types";
 
 export const ContainerLayout = () => {
   const { handleChangeLayout, display } = useCustomStyles();
@@ -29,29 +30,29 @@ export const ContainerLayout = () => {
         <Chip label="Display" />
         <IconBtnWrapper>
           <IconBtn
-            isSelected={display === "block"}
-            onClick={() => handleChangeLayout("display", "block")}
+            isSelected={display === displayValues.block}
+            onClick={() => handleChangeLayout("display", displayValues.block)}
           >
             <RxBoxModel size={15} />
           </IconBtn>
 
           <IconBtn
-            isSelected={display === "flex"}
-            onClick={() => handleChangeLayout("display", "flex")}
+            isSelected={display === displayValues.flex}
+            onClick={() => handleChangeLayout("display", displayValues.flex)}
           >
             <CgDisplayFlex size={15} />
           </IconBtn>
 
           <IconBtn
-            isSelected={display === "grid"}
-            onClick={() => handleChangeLayout("display", "grid")}
+            isSelected={display === displayValues.grid}
+            onClick={() => handleChangeLayout("display", displayValues.grid)}
           >
             <FiGrid size={15} />
           </IconBtn>
 
           <IconBtn
-            isSelected={display === "auto"}
-            onClick={() => handleChangeLayout("display", "auto")}
+            isSelected={display === displayValues.auto}
+            onClick={() => handleChangeLayout("display", displayValues.auto)}
           >
             <AiFillEyeInvisible size={15} />
           </IconBtn>
