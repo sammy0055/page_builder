@@ -79,5 +79,8 @@ export const useCustomStyles = () => {
     color,
     fontSize,
     fontWeight,
+    display,
+    justifyContent,
+    alignItems,
   };
 };

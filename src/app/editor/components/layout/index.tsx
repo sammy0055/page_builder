@@ -22,25 +22,37 @@ import { BtnWrapper, DisplayContainer, IconBtnWrapper } from "./layoutdiv";
 import { IconBtn } from "../iconWrapper/icon-btn";
 
 export const ContainerLayout = () => {
-  const { handleChangeLayout } = useCustomStyles();
+  const { handleChangeLayout, display } = useCustomStyles();
   return (
     <>
       <DisplayContainer>
         <Chip label="Display" />
         <IconBtnWrapper>
-          <IconBtn onClick={() => handleChangeLayout("display", "block")}>
+          <IconBtn
+            isSelected={display === "block"}
+            onClick={() => handleChangeLayout("display", "block")}
+          >
             <RxBoxModel size={15} />
           </IconBtn>
 
-          <IconBtn onClick={() => handleChangeLayout("display", "flex")}>
+          <IconBtn
+            isSelected={display === "flex"}
+            onClick={() => handleChangeLayout("display", "flex")}
+          >
             <CgDisplayFlex size={15} />
           </IconBtn>
 
-          <IconBtn onClick={() => handleChangeLayout("display", "grid")}>
+          <IconBtn
+            isSelected={display === "grid"}
+            onClick={() => handleChangeLayout("display", "grid")}
+          >
             <FiGrid size={15} />
           </IconBtn>
 
-          <IconBtn onClick={() => handleChangeLayout("display", "auto")}>
+          <IconBtn
+            isSelected={display === "auto"}
+            onClick={() => handleChangeLayout("display", "auto")}
+          >
             <AiFillEyeInvisible size={15} />
           </IconBtn>
         </IconBtnWrapper>
