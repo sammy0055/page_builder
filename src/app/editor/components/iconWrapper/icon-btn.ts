@@ -1,4 +1,6 @@
-.Wrapper {
+import styled from "styled-components";
+
+export const IconBtn = styled.button`
   width: 35px;
   height: 25px;
   border: none;
@@ -6,8 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.Wrapper:focus{
+  &:focus {
     background-color: gray;
-}
+  }
+`;

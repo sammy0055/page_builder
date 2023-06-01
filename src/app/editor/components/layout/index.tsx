@@ -18,8 +18,8 @@ import {
 
 //modules
 import { Chip } from "../chip";
-import { IconWrapper } from "../iconWrapper";
 import { BtnWrapper, DisplayContainer, IconBtnWrapper } from "./layoutdiv";
+import { IconBtn } from "../iconWrapper/icon-btn";
 
 export const ContainerLayout = () => {
   const { handleChangeLayout } = useCustomStyles();
@@ -28,22 +28,21 @@ export const ContainerLayout = () => {
       <DisplayContainer>
         <Chip label="Display" />
         <IconBtnWrapper>
-          <IconWrapper
-            icon={<RxBoxModel size={15} />}
-            handleChange={() => handleChangeLayout("display", "block")}
-          />
-          <IconWrapper
-            icon={<CgDisplayFlex size={15} />}
-            handleChange={() => handleChangeLayout("display", "flex")}
-          />
-          <IconWrapper
-            icon={<FiGrid size={15} />}
-            handleChange={() => handleChangeLayout("display", "grid")}
-          />
-          <IconWrapper
-            icon={<AiFillEyeInvisible size={15} />}
-            handleChange={() => handleChangeLayout("display", "auto")}
-          />
+          <IconBtn onClick={() => handleChangeLayout("display", "block")}>
+            <RxBoxModel size={15} />
+          </IconBtn>
+
+          <IconBtn onClick={() => handleChangeLayout("display", "flex")}>
+            <CgDisplayFlex size={15} />
+          </IconBtn>
+
+          <IconBtn onClick={() => handleChangeLayout("display", "grid")}>
+            <FiGrid size={15} />
+          </IconBtn>
+
+          <IconBtn onClick={() => handleChangeLayout("display", "auto")}>
+            <AiFillEyeInvisible size={15} />
+          </IconBtn>
         </IconBtnWrapper>
       </DisplayContainer>
 
@@ -58,20 +57,36 @@ export const ContainerLayout = () => {
       <DisplayContainer>
         <Chip label="Align" />
         <IconBtnWrapper>
-          <IconWrapper icon={<MdOutlineAlignHorizontalLeft size={15} />} />
-          <IconWrapper icon={<MdOutlineAlignVerticalCenter size={15} />} />
-          <IconWrapper icon={<MdOutlineAlignVerticalBottom size={15} />} />
-          <IconWrapper icon={<MdOutlineAlignHorizontalRight size={15} />} />
+          <IconBtn>
+            <MdOutlineAlignHorizontalLeft size={15} />
+          </IconBtn>
+          <IconBtn>
+            <MdOutlineAlignVerticalCenter size={15} />
+          </IconBtn>
+          <IconBtn>
+            <MdOutlineAlignVerticalBottom size={15} />
+          </IconBtn>
+          <IconBtn>
+            <MdOutlineAlignHorizontalRight size={15} />
+          </IconBtn>
         </IconBtnWrapper>
       </DisplayContainer>
 
       <DisplayContainer>
         <Chip label="Justify" />
         <IconBtnWrapper>
-          <IconWrapper icon={<LuAlignVerticalJustifyStart size={15} />} />
-          <IconWrapper icon={<LuAlignVerticalJustifyEnd size={15} />} />
-          <IconWrapper icon={<LuAlignVerticalJustifyCenter size={15} />} />
-          <IconWrapper icon={<LuAlignHorizontalJustifyCenter size={15} />} />
+          <IconBtn>
+            <LuAlignVerticalJustifyStart size={15} />
+          </IconBtn>
+          <IconBtn>
+            <LuAlignVerticalJustifyEnd size={15} />
+          </IconBtn>
+          <IconBtn>
+            <LuAlignVerticalJustifyCenter size={15} />
+          </IconBtn>
+          <IconBtn>
+            <LuAlignHorizontalJustifyCenter size={15} />
+          </IconBtn>
         </IconBtnWrapper>
       </DisplayContainer>
 
