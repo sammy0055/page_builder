@@ -3,8 +3,9 @@ import { useNode } from "@craftjs/core";
 import { Resizable } from "./resizable";
 import { ContainerSettings } from "./containerSettings";
 import { commonStyles } from "@/utils/common-styles";
+import { ReactNode } from "react";
 export interface ContainerProps extends Styles {
-  children?: JSX.Element;
+  children?: ReactNode;
 }
 
 export const ContainerDefaultProps = { width: 200, backgroundColor: "auto" };

@@ -22,16 +22,28 @@ import { IconWrapper } from "../iconWrapper";
 import { BtnWrapper, DisplayContainer, IconBtnWrapper } from "./layoutdiv";
 
 export const ContainerLayout = () => {
-  const {} = useCustomStyles();
+  const { handleChangeLayout } = useCustomStyles();
   return (
     <>
       <DisplayContainer>
         <Chip label="Display" />
         <IconBtnWrapper>
-          <IconWrapper icon={<RxBoxModel size={15} />} />
-          <IconWrapper icon={<CgDisplayFlex size={15} />} />
-          <IconWrapper icon={<FiGrid size={15} />} />
-          <IconWrapper icon={<AiFillEyeInvisible size={15} />} />
+          <IconWrapper
+            icon={<RxBoxModel size={15} />}
+            handleChange={() => handleChangeLayout("display", "block")}
+          />
+          <IconWrapper
+            icon={<CgDisplayFlex size={15} />}
+            handleChange={() => handleChangeLayout("display", "flex")}
+          />
+          <IconWrapper
+            icon={<FiGrid size={15} />}
+            handleChange={() => handleChangeLayout("display", "grid")}
+          />
+          <IconWrapper
+            icon={<AiFillEyeInvisible size={15} />}
+            handleChange={() => handleChangeLayout("display", "auto")}
+          />
         </IconBtnWrapper>
       </DisplayContainer>
 

@@ -12,22 +12,19 @@ export interface Spacing {
 }
 
 export type displayProperties = "flex" | "grid" | "none" | "auto";
-export type justifyContentProperties =
+export type FlexProperties =
   | "flex-start"
   | "flex-end"
   | "center"
-  | "space-around";
-export type alignItemsProperties =
-  | "flex-start"
-  | "flex-end"
-  | "center"
-  | "baseline";
+  | "space-around"
+  | "baseline"
+  | "block";
 export type Styles = Partial<Spacing> & {
   width?: number;
   height?: string;
   minHeight?: number;
   backgroundColor?: string;
   display?: displayProperties;
-  justifyContent?: justifyContentProperties;
-  alignItems?: alignItemsProperties;
+  justifyContent?: FlexProperties;
+  alignItems?: FlexProperties;
 };

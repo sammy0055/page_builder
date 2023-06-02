@@ -1,4 +1,4 @@
-import { displayProperties } from "@/types";
+import { FlexProperties, displayProperties } from "@/types";
 import { useNode } from "@craftjs/core";
 
 export const useCustomStyles = () => {
@@ -53,7 +53,10 @@ export const useCustomStyles = () => {
     setProp((props: any) => (props[name] = newColor));
   };
 
-  const handleChangeLayout = (name: displayProperties, value: string) => {
+  const handleChangeLayout = (
+    name: "display" | "justifyContent" | "alignItems",
+    value: FlexProperties | displayProperties
+  ) => {
     setProp((props: any) => (props[name] = value));
   };
 
@@ -61,6 +64,7 @@ export const useCustomStyles = () => {
     setProp,
     handleChangeSpacing,
     handleChangeColorPicker,
+    handleChangeLayout,
     paddingTop,
     paddingBottom,
     marginTop,

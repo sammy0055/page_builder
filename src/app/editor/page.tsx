@@ -33,6 +33,7 @@ export default function editor() {
             <section className={styles.main_page}>
               <Container>
                 <p>welcome</p>
+                <p>welcome</p>
               </Container>
             </section>
           </Frame>
