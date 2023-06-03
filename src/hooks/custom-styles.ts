@@ -1,3 +1,4 @@
+import { displayProperties } from "@/types";
 import { useNode } from "@craftjs/core";
 
 export const useCustomStyles = () => {
@@ -17,6 +18,9 @@ export const useCustomStyles = () => {
     color,
     fontSize,
     fontWeight,
+    display,
+    justifyContent,
+    alignItems,
   } = useNode((node) => ({
     fontSize: node.data?.props?.fontSize as number,
     fontWeight: node.data?.props?.fontWeight as number,
@@ -32,6 +36,9 @@ export const useCustomStyles = () => {
     marginBottom: node.data.props?.marginBottom as number,
     marginRight: node.data.props?.marginRight as number,
     marginLeft: node.data.props?.marginLeft as number,
+    display: node.data.props?.display as string,
+    justifyContent: node.data.props?.justifyContent as string,
+    alignItems: node.data.props?.alignItems as string,
   }));
   const handleChangeSpacing = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -44,6 +51,10 @@ export const useCustomStyles = () => {
     name: "backgroundColor" | "color"
   ) => {
     setProp((props: any) => (props[name] = newColor));
+  };
+
+  const handleChangeLayout = (name: displayProperties, value: string) => {
+    setProp((props: any) => (props[name] = value));
   };
 
   return {

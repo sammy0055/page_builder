@@ -23,6 +23,9 @@ export const Container = (props: ContainerProps) => {
     backgroundColor: props?.backgroundColor
       ? `${props?.backgroundColor}`
       : "auto",
+    display: props?.display || "auto",
+    justifyContent: props?.justifyContent || "auto",
+    alignItems: props?.alignItems || "auto",
   };
 
   const {

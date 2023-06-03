@@ -16,7 +16,6 @@ import {
   LuAlignHorizontalJustifyCenter,
 } from "react-icons/lu";
 
-//
 //modules
 import { Chip } from "../chip";
 import { IconWrapper } from "../iconWrapper";
@@ -29,10 +28,10 @@ export const ContainerLayout = () => {
       <DisplayContainer>
         <Chip label="Display" />
         <IconBtnWrapper>
-          <IconWrapper icon={<RxBoxModel size={17} />} />
-          <IconWrapper icon={<CgDisplayFlex size={17} />} />
-          <IconWrapper icon={<FiGrid size={17} />} />
-          <IconWrapper icon={<AiFillEyeInvisible size={17} />} />
+          <IconWrapper icon={<RxBoxModel size={15} />} />
+          <IconWrapper icon={<CgDisplayFlex size={15} />} />
+          <IconWrapper icon={<FiGrid size={15} />} />
+          <IconWrapper icon={<AiFillEyeInvisible size={15} />} />
         </IconBtnWrapper>
       </DisplayContainer>
 
