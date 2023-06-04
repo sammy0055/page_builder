@@ -9,7 +9,14 @@ import {
   MdOutlineAlignHorizontalRight,
   MdOutlineAlignVerticalCenter,
 } from "react-icons/md";
+import {
+  LuAlignVerticalJustifyStart,
+  LuAlignVerticalJustifyEnd,
+  LuAlignVerticalJustifyCenter,
+  LuAlignHorizontalJustifyCenter,
+} from "react-icons/lu";
 
+//
 //modules
 import { Chip } from "../chip";
 import { IconWrapper } from "../iconWrapper";
@@ -50,10 +57,18 @@ export const ContainerLayout = () => {
       <DisplayContainer>
         <Chip label="Justify" />
         <IconBtnWrapper>
-          <IconWrapper icon={<MdOutlineAlignHorizontalLeft size={15} />} />
-          <IconWrapper icon={<MdOutlineAlignVerticalCenter size={15} />} />
-          <IconWrapper icon={<MdOutlineAlignVerticalBottom size={15} />} />
-          <IconWrapper icon={<MdOutlineAlignHorizontalRight size={15} />} />
+          <IconWrapper icon={<LuAlignVerticalJustifyStart size={15} />} />
+          <IconWrapper icon={<LuAlignVerticalJustifyEnd size={15} />} />
+          <IconWrapper icon={<LuAlignVerticalJustifyCenter size={15} />} />
+          <IconWrapper icon={<LuAlignHorizontalJustifyCenter size={15} />} />
+        </IconBtnWrapper>
+      </DisplayContainer>
+
+      <DisplayContainer>
+        <Chip label="Wrap" />
+        <IconBtnWrapper>
+          <BtnWrapper>Don't wrap</BtnWrapper>
+          <BtnWrapper>Wrap</BtnWrapper>
         </IconBtnWrapper>
       </DisplayContainer>
     </>

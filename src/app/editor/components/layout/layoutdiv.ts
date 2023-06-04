@@ -4,6 +4,9 @@ export const BtnWrapper = styled.button`
   padding: 7px;
   border: none;
   background-color: lightgray;
+  &:focus {
+    background-color: gray;
+  }
 `;
 
 export const DisplayContainer = styled.div`
