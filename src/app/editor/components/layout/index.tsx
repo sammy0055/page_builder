@@ -4,48 +4,58 @@ import { CgDisplayFlex } from "react-icons/cg";
 import { FiGrid } from "react-icons/fi";
 import { RxBoxModel } from "react-icons/rx";
 import {
-  MdOutlineAlignVerticalTop,
   MdOutlineAlignVerticalBottom,
   MdOutlineAlignHorizontalLeft,
   MdOutlineAlignHorizontalRight,
   MdOutlineAlignVerticalCenter,
 } from "react-icons/md";
-//MdOutlineAlignVerticalTop
+
 //modules
 import { Chip } from "../chip";
 import { IconWrapper } from "../iconWrapper";
-import styles from "./layoutdiv.module.css";
-import { BtnWrapper } from "./layoutdiv";
+import { BtnWrapper, DisplayContainer, IconBtnWrapper } from "./layoutdiv";
+
 export const ContainerLayout = () => {
   const {} = useCustomStyles();
   return (
     <>
-      <div className={styles.DisplayContainer}>
+      <DisplayContainer>
         <Chip label="Display" />
-        <div className={styles.IconBox}>
+        <IconBtnWrapper>
           <IconWrapper icon={<RxBoxModel size={17} />} />
           <IconWrapper icon={<CgDisplayFlex size={17} />} />
           <IconWrapper icon={<FiGrid size={17} />} />
           <IconWrapper icon={<AiFillEyeInvisible size={17} />} />
-        </div>
-      </div>
+        </IconBtnWrapper>
+      </DisplayContainer>
 
-      <div className={styles.DisplayContainer}>
+      <DisplayContainer>
         <Chip label="Direction" />
-        <div style={{ display: "flex" }}>
+        <IconBtnWrapper>
           <BtnWrapper>Horizontal</BtnWrapper>
-        </div>
-      </div>
+          <BtnWrapper>Vertical</BtnWrapper>
+        </IconBtnWrapper>
+      </DisplayContainer>
 
-      <div className={styles.DisplayContainer}>
+      <DisplayContainer>
         <Chip label="Align" />
-        <div className={styles.IconBox}>
-          <IconWrapper icon={<MdOutlineAlignHorizontalLeft size={17} />} />
-          <IconWrapper icon={<MdOutlineAlignVerticalCenter size={17} />} />
-          <IconWrapper icon={<MdOutlineAlignVerticalBottom size={17} />} />
-          <IconWrapper icon={<MdOutlineAlignHorizontalRight size={17} />} />
-        </div>
-      </div>
+        <IconBtnWrapper>
+          <IconWrapper icon={<MdOutlineAlignHorizontalLeft size={15} />} />
+          <IconWrapper icon={<MdOutlineAlignVerticalCenter size={15} />} />
+          <IconWrapper icon={<MdOutlineAlignVerticalBottom size={15} />} />
+          <IconWrapper icon={<MdOutlineAlignHorizontalRight size={15} />} />
+        </IconBtnWrapper>
+      </DisplayContainer>
+
+      <DisplayContainer>
+        <Chip label="Justify" />
+        <IconBtnWrapper>
+          <IconWrapper icon={<MdOutlineAlignHorizontalLeft size={15} />} />
+          <IconWrapper icon={<MdOutlineAlignVerticalCenter size={15} />} />
+          <IconWrapper icon={<MdOutlineAlignVerticalBottom size={15} />} />
+          <IconWrapper icon={<MdOutlineAlignHorizontalRight size={15} />} />
+        </IconBtnWrapper>
+      </DisplayContainer>
     </>
   );
 };
