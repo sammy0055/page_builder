@@ -1,4 +1,4 @@
-import styles from "./chip.module.css";
+import { Chips } from "./chip";
 export const Chip: React.FC<{ label: string }> = ({ label }) => {
-  return <span className={styles.Chip}>{label}</span>;
+  return <Chips>{label}</Chips>;
 };

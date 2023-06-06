@@ -1,0 +1,13 @@
+import styled from "styled-components";
+
+export const Chips = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 6px;
+  border-radius: 10%;
+  background-color: #dadafc;
+  color: #584ed0;
+  font-size: 10px;
+  line-height: 1.5;
+`;
