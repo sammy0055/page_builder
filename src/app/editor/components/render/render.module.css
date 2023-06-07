@@ -1,0 +1,19 @@
+.Btn {
+  padding: 0 0px;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+}
+
+.Btn > div {
+  position: relative;
+  top: -50%;
+  left: -50%;
+}
+
+.indicatorDiv {
+  height: 30px;
+  margin-top: -29px;
+  font-size: 12px;
+  line-height: 12px;
+}

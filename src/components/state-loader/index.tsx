@@ -1,22 +1,29 @@
-"use client";
+// "use client";
 import { useEffect, useState } from "react";
 import lz from "lzutf8";
 import { useEditor } from "@craftjs/core";
 import { stateToLoad } from "@/data/test";
 
-export const LoadStateNodes: React.FC = () => {
+export const LoadStateNodes = () => {
   const { actions } = useEditor((state) => ({
     enabled: state.options.enabled,
   }));
 
   const [state, setState] = useState("");
-
-  useEffect(() => {
+  const getNode = async () => {
+    const data = await fetch("/dbstate");
+    const db = data.json()
+    // console.log("====================================");
+    // console.log(db);
+    // console.log("====================================");
     if (stateToLoad) {
       const json = lz.decompress(lz.decodeBase64(stateToLoad));
       actions.deserialize(json);
     } else alert("stateNode not found");
-  }, []);
+  };
+  // useEffect(() => {
+  //   getNode();
+  // }, []);
 
   const handleChange = () => {
     const json = lz.decompress(lz.decodeBase64(state));

@@ -22,14 +22,13 @@ export default function editor() {
           Container,
           HeroSection,
         }}
-        enabled={true}
       >
         <Header />
         <div className={styles.main}>
           <Frame>
             <section className={styles.main_page}>
               <NewsBar />
-              {/* <HeroSection /> */}
+              <HeroSection />
             </section>
           </Frame>
           <SideBar />

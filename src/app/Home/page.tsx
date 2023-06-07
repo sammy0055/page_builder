@@ -5,8 +5,8 @@ import { Editor, Frame } from "@craftjs/core";
 import { NewsBar } from "@/components/newsbar";
 import { Typography } from "@/user-components/typography";
 import { LoadStateNodes } from "@/components/state-loader";
-// import { Container } from "@/user-components/container";
-// import { HeroSection } from "./heroSection";
+import { Container } from "@/user-components/container";
+import { HeroSection } from "./heroSection";
 
 export default function about() {
   return (
@@ -15,8 +15,9 @@ export default function about() {
         resolver={{
           NewsBar,
           Typography,
+          Container,
+          HeroSection
         }}
-        
       >
         <LoadStateNodes />
         <Frame>
