@@ -28,9 +28,6 @@ export const ContainerSettings = () => {
     marginRight,
     marginLeft,
   };
-  console.log("====================================");
-  console.log(backgroundColor);
-  console.log("====================================");
   return (
     <>
       <Dropdown label="backgroundColor">

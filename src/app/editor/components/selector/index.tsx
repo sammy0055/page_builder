@@ -34,7 +34,7 @@ export const Selector: React.FC<SelectorProps> = ({
         <select
           className={styles.SizeSelector}
           onChange={handleChange}
-          name="size"
+          name={name}
           id="size"
         >
           {selectOptionData.map((size) => (

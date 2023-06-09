@@ -1,10 +1,10 @@
 "use client";
 import ContentEditable, { ContentEditableEvent } from "react-contenteditable";
-import { useEffect, useState } from "react";
 import { useNode } from "@craftjs/core";
 import { Spacing } from "@/types";
 import { commonStyles } from "@/utils/common-styles";
 import { TypographySettings } from "./typography-settings";
+import { useEffect, useState } from "react";
 
 export interface TypographyProps extends Partial<Spacing> {
   children: string;
@@ -23,8 +23,8 @@ export const Typography = (props: TypographyProps) => {
     hasSelectedNode: state.events.selected,
     hasDraggedNode: state.events.dragged,
   }));
-
   const [editable, setEditable] = useState(false);
+
   const commoncss = commonStyles(props);
   const css = {
     color: `${props?.color}` || "auto",
@@ -36,6 +36,7 @@ export const Typography = (props: TypographyProps) => {
   useEffect(() => {
     !hasSelectedNode && setEditable(false);
   }, [hasSelectedNode]);
+
   return (
     <span
       ref={(ref: any) => connect(drag(ref))}
