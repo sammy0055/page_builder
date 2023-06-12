@@ -1,0 +1,10 @@
+.Chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 6px;
+    border-radius: 10%;
+    background-color: #dadafc;
+    color: #584ed0;
+    font-size: 10px;
+    line-height: 1.5;
+  }

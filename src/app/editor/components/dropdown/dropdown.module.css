@@ -1,0 +1,22 @@
+.DropdownContainer {
+  background-color: rgb(245, 245, 245);
+  margin: 6px;
+  padding: 6px;
+  border-radius: 3%;
+}
+
+.DropdownTogglerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.DropdownToggler {
+  background: none;
+  border: none;
+}
+
+.SettingsContainer {
+  margin-top: 6px;
+}

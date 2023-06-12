@@ -1,0 +1,12 @@
+.sidebar_container {
+  height: 92vh;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(230, 230, 230);
+  overflow-y: scroll;
+}
+
+.ToolboxHeading {
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+  padding: 6px;
+}

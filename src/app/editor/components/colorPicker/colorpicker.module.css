@@ -1,0 +1,16 @@
+.ColorPicker {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pickerInput {
+  margin-top: 12px;
+ text-align: center;
+ border: 1px solid #ccc;
+}
+
+.pickerInput:focus {
+  outline: none;
+}

@@ -1,0 +1,12 @@
+.Container {
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+  background-color: #ffff;
+  text-align: center;
+}
+
+.Testbox {
+  width: 50%;
+  height: 20vh;
+  background-color: rebeccapurple;
+}

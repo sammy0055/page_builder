@@ -1,0 +1,35 @@
+.Container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.SizeContainer {
+  background-color: black;
+}
+
+.SizeContainerInput {
+  width: 40px;
+  border: 1px solid #ccc;
+  border-right: 0px;
+}
+
+.SizeContainerInput:focus {
+  outline: none;
+}
+
+.Size {
+  background-color: #dadafc;
+  color: #584ed0;
+  padding: 3px;
+  border-radius: 10%;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.SizeSelector {
+  border: 1px solid #ccc;
+  border-left: 0px;
+  background-color: #fff;
+  color: #584ed0;
+}

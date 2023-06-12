@@ -1,0 +1,6 @@
+.container {
+  width: 30%;
+  background-color: lightgray;
+  display: flex;
+  justify-content: space-between;
+}
