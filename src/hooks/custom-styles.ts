@@ -14,9 +14,13 @@ export const useCustomStyles = () => {
     marginRight,
     marginLeft,
     backgroundColor,
+    color,
+    fontSize,
+    fontWeight,
   } = useNode((node) => ({
     fontSize: node.data?.props?.fontSize as number,
     fontWeight: node.data?.props?.fontWeight as number,
+    color: node.data.props?.color as string,
     backgroundColor: node.data?.props?.backgroundColor as string,
     padding: node.data.props?.padding as number,
     paddingTop: node.data.props?.paddingTop as number,
@@ -29,12 +33,17 @@ export const useCustomStyles = () => {
     marginRight: node.data.props?.marginRight as number,
     marginLeft: node.data.props?.marginLeft as number,
   }));
-  const handleChangeSpacing = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeSpacing = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { value, name } = e.target;
     setProp((props: any) => (props[name] = value));
   };
-  const handleChangeColorPicker = (newColor: string) => {
-    setProp((props: any) => (props!.backgroundColor = newColor));
+  const handleChangeColorPicker = (
+    newColor: string,
+    name: "backgroundColor" | "color"
+  ) => {
+    setProp((props: any) => (props[name] = newColor));
   };
 
   return {
@@ -52,5 +61,8 @@ export const useCustomStyles = () => {
     padding,
     margin,
     backgroundColor,
+    color,
+    fontSize,
+    fontWeight,
   };
 };

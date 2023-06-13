@@ -1,9 +1,10 @@
+import { Selector } from "@/app/editor/components/selector";
 import { ColorPicker } from "@/app/editor/components/colorPicker";
-import { Dimention } from "@/app/editor/components/dimension";
 import Dropdown from "@/app/editor/components/dropdown";
+import { Dimention } from "@/app/editor/components/dimension";
 import { Slider } from "@/app/editor/components/slider";
 import { useCustomStyles } from "@/hooks/custom-styles";
-export const ContainerSettings = () => {
+export const TypographySettings = () => {
   const {
     handleChangeSpacing,
     handleChangeColorPicker,
@@ -15,8 +16,13 @@ export const ContainerSettings = () => {
     paddingLeft,
     marginRight,
     marginLeft,
-    backgroundColor,
+    color,
+    fontSize,
+    fontWeight,
   } = useCustomStyles();
+
+  const fontSizesArray: number[] = [12, 14, 16, 18, 20, 24, 28, 32, 36, 40];
+  const fontWeights: number[] = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
   const dimensionsValue: any = {
     paddingTop,
@@ -28,16 +34,27 @@ export const ContainerSettings = () => {
     marginRight,
     marginLeft,
   };
-  console.log("====================================");
-  console.log(backgroundColor);
-  console.log("====================================");
   return (
     <>
-      <Dropdown label="backgroundColor">
+      <Dropdown label="Typography">
+        <Selector
+          fontSize={fontSize}
+          handleChange={handleChangeSpacing}
+          label="size"
+          name="fontSize"
+          selectOptionData={fontSizesArray}
+        />
+        <Selector
+          fontWeight={fontWeight}
+          handleChange={handleChangeSpacing}
+          label="weight"
+          name="fontWeight"
+          selectOptionData={fontWeights}
+        />
         <ColorPicker
-          color={backgroundColor}
+          color={color}
           handleChange={(newColor) =>
-            handleChangeColorPicker(newColor, "backgroundColor")
+            handleChangeColorPicker(newColor, "color")
           }
         />
       </Dropdown>

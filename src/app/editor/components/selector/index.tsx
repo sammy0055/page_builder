@@ -7,6 +7,7 @@ interface SelectorProps {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => void;
   label: string;
+  name: "fontSize" | "fontWeight";
   selectOptionData: number[];
 }
 export const Selector: React.FC<SelectorProps> = ({
@@ -14,6 +15,7 @@ export const Selector: React.FC<SelectorProps> = ({
   fontWeight,
   handleChange,
   label,
+  name,
   selectOptionData,
 }) => {
   return (
@@ -24,6 +26,7 @@ export const Selector: React.FC<SelectorProps> = ({
 
       <span>
         <input
+          name={name}
           value={fontSize || fontWeight}
           onChange={handleChange}
           className={styles.SizeContainerInput}

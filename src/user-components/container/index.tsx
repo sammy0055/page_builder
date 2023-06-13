@@ -1,10 +1,10 @@
 import { Styles } from "@/types";
-import { Element, useNode } from "@craftjs/core";
+import { useNode } from "@craftjs/core";
 import { Resizable } from "./resizable";
 import { ContainerSettings } from "./containerSettings";
 import { commonStyles } from "@/utils/common-styles";
 export interface ContainerProps extends Styles {
-  children?: any;
+  children?: JSX.Element;
 }
 
 export const ContainerDefaultProps = { width: 200, backgroundColor: "auto" };
@@ -28,9 +28,6 @@ export const Container = (props: ContainerProps) => {
     connectors: { connect, drag },
     actions: { setProp },
   } = useNode();
-  console.log("====================================");
-  console.log(css);
-  console.log("====================================");
   return (
     <>
       <div style={css} ref={(ref: any) => connect(drag(ref))}>
