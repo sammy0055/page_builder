@@ -11,16 +11,16 @@ export const LoadStateNodes: React.FC = () => {
 
   const [state, setState] = useState("");
 
-  // useEffect(() => {
-  //   if (stateToLoad) {
-  //     const json = lz.decompress(lz.decodeBase64(stateToLoad));
-  //     actions.deserialize(JSON.stringify(json));
-  //   } else alert("stateNode not found");
-  // }, []);
+  useEffect(() => {
+    if (stateToLoad) {
+      const json = lz.decompress(lz.decodeBase64(stateToLoad));
+      actions.deserialize(json);
+    } else alert("stateNode not found");
+  }, []);
 
   const handleChange = () => {
     const json = lz.decompress(lz.decodeBase64(state));
-    actions.deserialize(JSON.stringify(json));
+    actions.deserialize(json);
   };
   return (
     <div>
