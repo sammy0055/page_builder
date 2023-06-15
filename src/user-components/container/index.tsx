@@ -3,7 +3,6 @@ import { useNode } from "@craftjs/core";
 import { Resizable } from "./resizable";
 import { ContainerSettings } from "./containerSettings";
 import { commonStyles } from "@/utils/common-styles";
-import { useEditorEditableState } from "@/context";
 export interface ContainerProps extends Styles {
   children?: JSX.Element;
 }
@@ -11,7 +10,7 @@ export interface ContainerProps extends Styles {
 export const ContainerDefaultProps = { width: 200, backgroundColor: "auto" };
 
 export const Container = (props: ContainerProps) => {
-  const { editable } = useEditorEditableState();
+  const editable = true
   const commoncss = commonStyles(props);
   const css: any = {
     ...commoncss,

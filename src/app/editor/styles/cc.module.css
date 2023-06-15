@@ -1,0 +1,14 @@
+.first {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  background-color: aqua;
+  height: 93vh;
+}
+
+.sideBar {
+  background-color: black;
+}
+
+.page {
+  background-color: rgb(214, 33, 33);
+}

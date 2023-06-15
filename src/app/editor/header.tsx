@@ -5,13 +5,13 @@ import lz from "lzutf8";
 import copy from "copy-to-clipboard";
 
 export default function Header() {
-  // const { actions, query, enabled } = useEditor((state) => ({
-  //   enabled: state.options.enabled,
-  // }));
+  const { query } = useEditor((state) => ({
+    enabled: state.options.enabled,
+  }));
 
   const saveNode = () => {
-    // const json = query.serialize();
-    // copy(lz.encodeBase64(lz.compress(json)));
+    const json = query.serialize();
+    copy(lz.encodeBase64(lz.compress(json)));
     alert("state copied to clipboard");
   };
   return (

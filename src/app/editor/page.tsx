@@ -3,15 +3,14 @@ import SideBar from "./components/side-bar";
 import styles from "./styles/main.module.css";
 
 import { Editor, Frame } from "@craftjs/core";
-import Header from "../Home/header";
+import Header from "./header";
+// import {Header as NewsBar} from "../Home/header";
 import { NewsBar } from "@/components/newsbar";
 import { Typography } from "@/user-components/typography";
 import { Container } from "@/user-components/container";
 import { HeroSection } from "../Home/heroSection";
-import { useEditorEditableState } from "@/context";
 
 export default function editor() {
-  const { editable } = useEditorEditableState();
   return (
     <>
       <Editor
@@ -23,18 +22,18 @@ export default function editor() {
           Container,
           HeroSection,
         }}
-        enabled={editable}
+        enabled={true}
       >
-        <Frame>
-          <section className={styles.main_page}>
-            {/* <Header /> */}
-            <Container>
-              <p>welcome</p>
-            </Container>
-            <HeroSection />
-          </section>
-        </Frame>
-        <SideBar />
+        <Header />
+        <div className={styles.main}>
+          <Frame>
+            <section className={styles.main_page}>
+              <NewsBar />
+              {/* <HeroSection /> */}
+            </section>
+          </Frame>
+          <SideBar />
+        </div>
       </Editor>
     </>
   );

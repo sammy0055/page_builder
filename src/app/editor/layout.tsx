@@ -1,10 +1,4 @@
-"use client";
-import { EditableState } from "@/context";
-import Header from "./header";
-import styles from "./styles/main.module.css";
 import { Outfit } from "next/font/google";
-import { useState } from "react";
-
 const outfit = Outfit({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
@@ -17,14 +11,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [editable, setEditable] = useState(true);
   return (
     <html lang="en">
       <body>
-        <EditableState.Provider value={{ editable, setEditable }}>
-          <Header />
-          <main className={styles.main}>{children}</main>
-        </EditableState.Provider>
+        <main>{children}</main>
       </body>
     </html>
   );

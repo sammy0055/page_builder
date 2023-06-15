@@ -1,19 +1,27 @@
 "use client";
 
-import Header from "./header";
+import { Header } from "./header";
 import { Editor, Frame } from "@craftjs/core";
 import { NewsBar } from "@/components/newsbar";
 import { Typography } from "@/user-components/typography";
-import { Container } from "@/user-components/container";
-import { ResizableCom } from "@/user-components/container/resizable";
+import { LoadStateNodes } from "@/components/state-loader";
+// import { Container } from "@/user-components/container";
+// import { HeroSection } from "./heroSection";
+
 export default function about() {
   return (
     <>
-      <Editor resolver={{ Header, NewsBar, Typography }}>
+      <Editor
+        resolver={{
+          NewsBar,
+          Typography,
+        }}
+        
+      >
+        <LoadStateNodes />
         <Frame>
           <div>
-            <Header />
-            {/* <ResizableCom /> */}
+            <NewsBar />
           </div>
         </Frame>
       </Editor>
