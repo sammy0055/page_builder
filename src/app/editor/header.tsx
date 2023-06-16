@@ -17,7 +17,13 @@ export default function Header() {
   return (
     <header className={styles.Nav}>
       <span className="text-slate-100">hello</span>
-      <span className="text-slate-100">hello</span>
+      <span className="text-slate-100">
+        <select name="selector">
+          <option>landing_page</option>
+          <option>cart</option>
+          <option>productPreview_page</option>
+        </select>
+      </span>
       <nav className={styles.NavText}>
         <NavText
           text="fullscreen"

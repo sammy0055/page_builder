@@ -23,6 +23,7 @@ export default function about() {
         <Frame>
           <div>
             <NewsBar />
+            <HeroSection />
           </div>
         </Frame>
       </Editor>

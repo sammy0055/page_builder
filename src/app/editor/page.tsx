@@ -1,7 +1,6 @@
 "use client";
 import SideBar from "./components/side-bar";
 import styles from "./styles/main.module.css";
-
 import { Editor, Frame } from "@craftjs/core";
 import Header from "./header";
 // import {Header as NewsBar} from "../Home/header";
@@ -9,6 +8,7 @@ import { NewsBar } from "@/components/newsbar";
 import { Typography } from "@/user-components/typography";
 import { Container } from "@/user-components/container";
 import { HeroSection } from "../Home/heroSection";
+import { LoadStateNodes } from "@/components/state-loader";
 
 export default function editor() {
   return (
@@ -23,6 +23,7 @@ export default function editor() {
           HeroSection,
         }}
       >
+        <LoadStateNodes />
         <Header />
         <div className={styles.main}>
           <Frame>

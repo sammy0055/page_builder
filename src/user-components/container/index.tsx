@@ -9,8 +9,14 @@ export interface ContainerProps extends Styles {
 
 export const ContainerDefaultProps = { width: 200, backgroundColor: "auto" };
 
+const Contdiv = ({ children }: any) => {
+  const {
+    connectors: { connect, drag },
+  } = useNode();
+  return <div ref={(ref: any) => connect(drag(ref))}>{children}</div>;
+};
 export const Container = (props: ContainerProps) => {
-  const editable = true
+  const editable = true;
   const commoncss = commonStyles(props);
   const css: any = {
     ...commoncss,
