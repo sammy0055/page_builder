@@ -1,0 +1,18 @@
+.DisplayContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.IconBox {
+  display: flex;
+}
+
+.Direction {
+  padding: 7px;
+  border: none;
+  background-color: lightgray;
+}
+
+.Direction:focus{
+    background-color: gray;
+}

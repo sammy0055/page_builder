@@ -1,0 +1,13 @@
+.Wrapper {
+  width: 35px;
+  height: 25px;
+  border: none;
+  background-color: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Wrapper:focus{
+    background-color: gray;
+}
