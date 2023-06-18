@@ -1,6 +1,7 @@
 import { ColorPicker } from "@/app/editor/components/colorPicker";
 import { Dimention } from "@/app/editor/components/dimension";
 import Dropdown from "@/app/editor/components/dropdown";
+import { ContainerLayout } from "@/app/editor/components/layout";
 import { Slider } from "@/app/editor/components/slider";
 import { useCustomStyles } from "@/hooks/custom-styles";
 export const ContainerSettings = () => {
@@ -45,6 +46,9 @@ export const ContainerSettings = () => {
         />
         <Slider label="margin" />
         <Slider label="padding" />
+      </Dropdown>
+      <Dropdown label="layout">
+        <ContainerLayout />
       </Dropdown>
     </>
   );

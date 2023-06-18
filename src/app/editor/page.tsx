@@ -30,9 +30,11 @@ export default function editor() {
         <Header />
         <div className={styles.main}>
           <Frame>
-            <Container>
-              <p>welcome</p>
-            </Container>
+            <section className={styles.main_page}>
+              <Container>
+                <p>welcome</p>
+              </Container>
+            </section>
           </Frame>
           <SideBar />
         </div>
