@@ -20,5 +20,4 @@ HeroSection.craft = {
     settings: ContainerSettings,
     props: ContainerDefaultProps,
   },
-  displayName: "Custom 1",
 };

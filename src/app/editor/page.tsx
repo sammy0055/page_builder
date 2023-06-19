@@ -9,8 +9,19 @@ import { Typography } from "@/user-components/typography";
 import { Container } from "@/user-components/container";
 import { HeroSection } from "../Home/heroSection";
 import { LoadStateNodes } from "@/components/state-loader";
+import { Home } from "../Home/home";
+import { useState } from "react";
 
 export default function editor() {
+  const [Component, setComponent] = useState<JSX.Element>();
+
+  const pages = {
+    home: Home,
+    preview: <p>preview</p>,
+  };
+  const handlePages = (page: "home" | "preview") => {
+    setComponent(pages[page]);
+  };
   return (
     <>
       <Editor
@@ -21,6 +32,7 @@ export default function editor() {
           Header,
           Container,
           HeroSection,
+          Home,
         }}
       >
         <LoadStateNodes />
@@ -28,8 +40,7 @@ export default function editor() {
         <div className={styles.main}>
           <Frame>
             <section className={styles.main_page}>
-              <NewsBar />
-              <HeroSection />
+              <Home />
             </section>
           </Frame>
           <SideBar />

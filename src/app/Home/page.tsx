@@ -7,6 +7,7 @@ import { Typography } from "@/user-components/typography";
 import { LoadStateNodes } from "@/components/state-loader";
 import { Container } from "@/user-components/container";
 import { HeroSection } from "./heroSection";
+import { Home } from "./home";
 
 export default function about() {
   return (
@@ -16,14 +17,13 @@ export default function about() {
           NewsBar,
           Typography,
           Container,
-          HeroSection
+          HeroSection,
         }}
       >
         <LoadStateNodes />
         <Frame>
           <div>
-            <NewsBar />
-            <HeroSection />
+            <Home />
           </div>
         </Frame>
       </Editor>
