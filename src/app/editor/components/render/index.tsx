@@ -120,7 +120,8 @@ export const RenderNode = ({ render }: any) => {
             </div>,
             pageContainerNode
           )
-        : ""}
+        : null}
+       {render}
     </>
   );
 };

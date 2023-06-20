@@ -18,9 +18,10 @@ export default function about() {
           Typography,
           Container,
           HeroSection,
+          Home,
         }}
       >
-        <LoadStateNodes />
+        {/* <LoadStateNodes /> */}
         <Frame>
           <div>
             <Home />

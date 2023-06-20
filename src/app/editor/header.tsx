@@ -1,5 +1,6 @@
 import NavText from "./components/nav-text";
 import styles from "./styles/nav.module.css";
+
 import { useEditor } from "@craftjs/core";
 import lz from "lzutf8";
 import copy from "copy-to-clipboard";
@@ -14,14 +15,14 @@ export default function Header() {
     copy(lz.encodeBase64(lz.compress(json)));
     alert("state copied to clipboard");
   };
+
   return (
     <header className={styles.Nav}>
       <span className="text-slate-100">hello</span>
       <span className="text-slate-100">
         <select name="selector">
-          <option>landing_page</option>
-          <option>cart</option>
-          <option>productPreview_page</option>
+          <option>home</option>
+          <option>preview</option>
         </select>
       </span>
       <nav className={styles.NavText}>
