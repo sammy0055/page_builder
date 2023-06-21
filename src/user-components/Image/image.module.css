@@ -4,3 +4,42 @@
   object-fit: cover;
   object-position: center;
 }
+
+.file_input_container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: aqua;
+}
+
+.file_label {
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 20px; */
+  /* background-color: #f2f2f2;
+  border-radius: 4px; */
+  cursor: pointer;
+}
+
+.material_icons {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.file_name {
+  text-align: center;
+  font-size: 12px;
+}
+
+.file_input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 60px;
+  height: 20px;
+  cursor: pointer;
+}

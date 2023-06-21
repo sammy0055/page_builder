@@ -14,7 +14,7 @@ import { Wrapper } from "./components/render/wrapper";
 import { Container2 } from "@/user-components/container/constainer-two";
 import MyDiv from "@/user-components/container/resizer1";
 import { useEditorContext } from "../context/editor-context";
-import { ImageContainer, ImageWrapper } from "@/user-components/Image";
+import { ImageWrapper } from "@/user-components/Image";
 import Image from 'next/image';
 export default function editor() {
   const [{ isEditable }] = useEditorContext();
@@ -29,7 +29,6 @@ export default function editor() {
           ImageWrapper,
           Image,
           ParentContainer,
-          ImageContainer
         }}
         enabled={isEditable}
         // onRender={RenderNode}

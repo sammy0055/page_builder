@@ -4,10 +4,7 @@ import styles from "./image.module.css";
 import { useEditorContext } from "@/app/context/editor-context";
 import { commonStyles } from "@/utils/common-styles";
 import { Resizable } from "../container/resizable";
-import Dropdown from "@/app/editor/components/dropdown";
-import { Dimention } from "@/app/editor/components/dimension";
-import { Slider } from "@/app/editor/components/slider";
-import { useCustomStyles } from "@/hooks/custom-styles";
+import { ImageWrappersetting } from "./image-settings";
 
 export const ContainerDefaultProps = {
   width: 200,
@@ -16,9 +13,10 @@ export const ContainerDefaultProps = {
   display: "auto",
   flexDirection: "auto",
   flexWrap: "nowrap",
+  imageUrl: "/black_fashion.jpg",
 };
 
-export const ImageContainer = (props: any) => {
+export const ImageWrapper = (props: any) => {
   const [{ isEditable }] = useEditorContext();
   const commoncss = commonStyles(props);
 
@@ -50,73 +48,25 @@ export const ImageContainer = (props: any) => {
     : "";
   return (
     <div
-      style={css}
       ref={(ref: any) => connect(drag(ref))}
+      style={css}
       onFocus={handleChnages}
       className={edit}
     >
       {isActive && <Resizable setProp={setProp} />}
-      {props.children}
-    </div>
-  );
-};
-
-export const ImageWrapper = () => {
-  return (
-    <Element is={ImageContainer} id="imagewrapper">
       <Image
-        src={`/black_fashion.jpg`}
+        ref={(ref: any) => connect(drag(ref))}
+        src={props?.imageUrl}
         alt="continer"
         width={100}
         height={100}
         className={styles.Image}
       />
-    </Element>
+    </div>
   );
 };
 
-const ImageWrappersetting = () => {
-  const {
-    handleChangeSpacing,
-    paddingTop,
-    paddingBottom,
-    marginTop,
-    marginBottom,
-    paddingRight,
-    paddingLeft,
-    marginRight,
-    marginLeft,
-  } = useCustomStyles();
-
-  const dimensionsValue: any = {
-    paddingTop,
-    paddingBottom,
-    marginTop,
-    marginBottom,
-    paddingRight,
-    paddingLeft,
-    marginRight,
-    marginLeft,
-  };
-  return (
-    <>
-      <Dropdown label="spacing">
-        <Dimention
-          dimensionsValue={dimensionsValue}
-          handleChange={handleChangeSpacing}
-        />
-        <Slider label="height" />
-        <Slider label="margin" />
-        <Slider label="padding" />
-      </Dropdown>
-      <Dropdown label="add image">
-        <>dfzds</>
-      </Dropdown>
-    </>
-  );
-};
-
-ImageContainer.craft = {
+ImageWrapper.craft = {
   props: ContainerDefaultProps,
   related: { settings: ImageWrappersetting },
 };

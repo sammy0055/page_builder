@@ -24,6 +24,7 @@ export const useCustomStyles = () => {
     alignItems,
     flexDirection,
     flexWrap,
+    imageUrl,
   } = useNode((node) => ({
     height: node.data?.props?.height as number,
     fontSize: node.data?.props?.fontSize as number,
@@ -45,6 +46,7 @@ export const useCustomStyles = () => {
     alignItems: node.data.props?.alignItems as string,
     flexDirection: node.data.props?.flexDirection as string,
     flexWrap: node.data.props?.flexWrap as string,
+    imageUrl: node.data.props?.imageUrl as string,
   }));
   const handleChangeSpacing = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -66,11 +68,18 @@ export const useCustomStyles = () => {
     setProp((props: any) => (props[name] = value));
   };
 
+  const handleImageUrl = (e: any) => {
+    setProp(
+      (props: any) => (props.imageUrl = URL.createObjectURL(e.target.files[0]))
+    );
+  };
+
   return {
     setProp,
     handleChangeSpacing,
     handleChangeColorPicker,
     handleChangeLayout,
+    handleImageUrl,
     height,
     paddingTop,
     paddingBottom,
@@ -91,5 +100,6 @@ export const useCustomStyles = () => {
     alignItems,
     flexDirection,
     flexWrap,
+    imageUrl,
   };
 };
