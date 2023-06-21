@@ -46,6 +46,7 @@ export const ContainerSettings = () => {
         />
         <Slider label="margin" />
         <Slider label="padding" />
+        <Slider label="height" />
       </Dropdown>
       <Dropdown label="layout">
         <ContainerLayout />

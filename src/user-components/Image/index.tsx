@@ -1,4 +1,4 @@
-import { Element, useEditor, useNode } from "@craftjs/core";
+import { useEditor, useNode } from "@craftjs/core";
 import Image from "next/image";
 import styles from "./image.module.css";
 import { useEditorContext } from "@/app/context/editor-context";

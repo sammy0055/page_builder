@@ -15,7 +15,7 @@ import { Container2 } from "@/user-components/container/constainer-two";
 import MyDiv from "@/user-components/container/resizer1";
 import { useEditorContext } from "../context/editor-context";
 import { ImageWrapper } from "@/user-components/Image";
-import Image from 'next/image';
+import Image from "next/image";
 export default function editor() {
   const [{ isEditable }] = useEditorContext();
   return (
@@ -38,10 +38,11 @@ export default function editor() {
         <div className={styles.main}>
           <Frame>
             <section className={`${styles.main_page} page-container`}>
-              <Element is={ParentContainer} id="ParentContainers" canvas>
-                <ImageWrapper />
-                
-              </Element>
+              <Element
+                is={ParentContainer}
+                id="ParentContainers"
+                canvas
+              ></Element>
             </section>
           </Frame>
           <SideBar />
