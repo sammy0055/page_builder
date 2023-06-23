@@ -41,7 +41,6 @@ export const Typography = (props: TypographyProps) => {
     <span
       ref={(ref: any) => connect(drag(ref))}
       onClick={() => setEditable(true)}
-      style={{ marginBottom: "22px" }}
     >
       <ContentEditable
         disabled={!editable}

@@ -17,6 +17,8 @@ export const ContainerDefaultProps = {
   backgroundColor: "auto",
   display: "auto",
   flexDirection: "auto",
+  justifyContent: "auto",
+  alignItems: "auto",
   flexWrap: "nowrap",
 };
 
@@ -32,8 +34,8 @@ export const Container = (props: ContainerProps) => {
     height: `${props?.height}vh`,
     backgroundColor: props?.backgroundColor,
     display: props?.display,
-    justifyContent: props?.justifyContent || "auto",
-    alignItems: props?.alignItems || "auto",
+    justifyContent: props?.justifyContent,
+    alignItems: props?.alignItems,
     flexDirection: props?.flexDirection,
     flexWrap: props?.flexWrap,
   };

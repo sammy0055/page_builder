@@ -33,7 +33,7 @@ export default function editor() {
         enabled={isEditable}
         // onRender={RenderNode}
       >
-        {/* <LoadStateNodes /> */}
+        <LoadStateNodes />
         <Header />
         <div className={styles.main}>
           <Frame>
