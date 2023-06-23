@@ -7,7 +7,11 @@ import copy from "copy-to-clipboard";
 //icons TbComponents
 import { TbComponents } from "react-icons/tb";
 import { CgStyle } from "react-icons/cg";
-import { AiOutlineEye, AiOutlineSave } from "react-icons/ai";
+import {
+  AiOutlineEye,
+  AiOutlineEyeInvisible,
+  AiOutlineSave,
+} from "react-icons/ai";
 import { GrUndo, GrRedo } from "react-icons/gr";
 import { IconWrapper } from "./styles/header";
 import Tooltip from "./components/tooltip";
@@ -52,7 +56,7 @@ export default function Header() {
           handler={() =>
             actions.setOptions((options) => (options.enabled = !enabled))
           }
-          IconComponent={AiOutlineEye}
+          IconComponent={enabled ? AiOutlineEye : AiOutlineEyeInvisible}
           TooltipContent="fullscreen"
         />
         <NavIcons

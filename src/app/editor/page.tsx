@@ -26,7 +26,7 @@ export default function Editor() {
         // enabled={false}
         // onRender={RenderNode}
       >
-        <LoadStateNodes />
+        {/* <LoadStateNodes /> */}
         <Header />
         <div className={styles.main}>
           <Frame>
@@ -53,14 +53,13 @@ const ParentContainer = ({ children }: any) => {
   const {
     connectors: { connect, drag },
   } = useNode();
-  const [{ isEditable }] = useEditorContext();
 
-  const _style = isEditable ? styles.main_parent : "";
+  //const _style = isEditable ? styles.main_parent : "";
   return (
     <div
       style={{ ...css }}
       ref={(ref: any) => connect(drag(ref))}
-      className={_style}
+      className={styles.main_parent}
     >
       {children}
     </div>
