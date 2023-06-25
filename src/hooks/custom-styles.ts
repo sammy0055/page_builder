@@ -4,6 +4,7 @@ import { useNode } from "@craftjs/core";
 export const useCustomStyles = () => {
   const {
     actions: { setProp },
+    height,
     padding,
     paddingTop,
     paddingBottom,
@@ -22,8 +23,9 @@ export const useCustomStyles = () => {
     justifyContent,
     alignItems,
     flexDirection,
-    flexWrap
+    flexWrap,
   } = useNode((node) => ({
+    height: node.data?.props?.height as number,
     fontSize: node.data?.props?.fontSize as number,
     fontWeight: node.data?.props?.fontWeight as number,
     color: node.data.props?.color as string,
@@ -69,6 +71,7 @@ export const useCustomStyles = () => {
     handleChangeSpacing,
     handleChangeColorPicker,
     handleChangeLayout,
+    height,
     paddingTop,
     paddingBottom,
     marginTop,
@@ -87,6 +90,6 @@ export const useCustomStyles = () => {
     justifyContent,
     alignItems,
     flexDirection,
-    flexWrap
+    flexWrap,
   };
 };

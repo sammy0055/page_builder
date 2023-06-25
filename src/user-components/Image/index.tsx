@@ -75,7 +75,7 @@ export const ImageWrapper = () => {
   );
 };
 
- const ImageWrappersetting = () => {
+const ImageWrappersetting = () => {
   const {
     handleChangeSpacing,
     paddingTop,
@@ -105,8 +105,12 @@ export const ImageWrapper = () => {
           dimensionsValue={dimensionsValue}
           handleChange={handleChangeSpacing}
         />
+        <Slider label="height" />
         <Slider label="margin" />
         <Slider label="padding" />
+      </Dropdown>
+      <Dropdown label="add image">
+        <>dfzds</>
       </Dropdown>
     </>
   );
