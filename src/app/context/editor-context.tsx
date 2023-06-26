@@ -23,7 +23,7 @@ export const useEditorGlobalState = () => {
   const globalState: EditorContextState = {
     isComponents: false,
     isStyles: true,
-    isEditable: false,
+    isEditable: true,
   };
 
   const reducer = (state: any, action: EditorContextAction) => {

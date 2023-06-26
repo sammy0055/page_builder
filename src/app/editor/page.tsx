@@ -39,10 +39,7 @@ export default function editor() {
           <Frame>
             <section className={`${styles.main_page} page-container`}>
               <Element is={ParentContainer} id="ParentContainers" canvas>
-                <Container>
-                  <p>welcome</p>
-                  <p>welcome</p>
-                </Container>
+                
               </Element>
             </section>
           </Frame>
@@ -59,14 +56,17 @@ const ParentContainer = ({ children }: any) => {
     width: "100%",
   };
   const {
-    connectors: { connect },
-    actions: { setProp },
+    connectors: { connect, drag },
   } = useNode();
   const [{ isEditable }] = useEditorContext();
 
   const _style = isEditable ? styles.main_parent : "";
   return (
-    <div style={{ ...css }} ref={() => connect} className={_style}>
+    <div
+      style={{ ...css }}
+      ref={(ref: any) => connect(drag(ref))}
+      className={_style}
+    >
       {children}
     </div>
   );
