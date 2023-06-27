@@ -11,6 +11,7 @@ import { LoadStateNodes } from "@/components/state-loader";
 import { Home } from "../Home/home";
 import { RenderNode } from "./components/render";
 import { Wrapper } from "./components/render/wrapper";
+import { Container2 } from "@/user-components/container/constainer-two";
 
 export default function editor() {
   return (
@@ -24,6 +25,7 @@ export default function editor() {
           Container,
           HeroSection,
           Home,
+          Container2,
         }}
         // onRender={RenderNode}
       >

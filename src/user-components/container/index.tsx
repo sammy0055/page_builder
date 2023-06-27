@@ -39,13 +39,12 @@ export const Container = (props: ContainerProps) => {
 
   const {
     connectors: { connect, drag },
-    actions: { setProp },
   } = useNode();
 
   return (
     <>
       <div style={css} ref={(ref: any) => connect(drag(ref))}>
-        {editable && <Resizable setProp={setProp} />}
+        {/* {editable && <Resizable setProp={setProp} />} */}
         {props.children}
       </div>
     </>

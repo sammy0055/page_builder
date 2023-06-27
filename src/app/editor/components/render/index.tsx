@@ -10,7 +10,7 @@ const IndicatorDiv = styled.div`
   margin-top: -29px;
   font-size: 12px;
   line-height: 12px;
-  background-color: gray;
+  border: 1px solid red;
 
   svg {
     fill: #fff;
