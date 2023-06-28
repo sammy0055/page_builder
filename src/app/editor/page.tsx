@@ -12,6 +12,7 @@ import { Home } from "../Home/home";
 import { RenderNode } from "./components/render";
 import { Wrapper } from "./components/render/wrapper";
 import { Container2 } from "@/user-components/container/constainer-two";
+import MyDiv from "@/user-components/container/resizer1";
 
 export default function editor() {
   return (
@@ -27,6 +28,7 @@ export default function editor() {
           Home,
           Container2,
         }}
+        enabled={true}
         // onRender={RenderNode}
       >
         {/* <LoadStateNodes /> */}

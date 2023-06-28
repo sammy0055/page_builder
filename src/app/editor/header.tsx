@@ -5,6 +5,9 @@ import { useEditor } from "@craftjs/core";
 import lz from "lzutf8";
 import copy from "copy-to-clipboard";
 
+//icons AiOutlineEye
+import { AiOutlineEye } from "react-icons/ai";
+
 export default function Header() {
   const { query } = useEditor((state) => ({
     enabled: state.options.enabled,
@@ -26,10 +29,9 @@ export default function Header() {
         </select>
       </span>
       <nav className={styles.NavText}>
-        <NavText
-          text="fullscreen"
-          className="font-sans font-bold text-slate-100"
-        />
+        <span>
+          <AiOutlineEye size={25} />
+        </span>
         <button onClick={saveNode}>save</button>
         <NavText text="copy" className="font-sans font-bold text-slate-100" />
       </nav>

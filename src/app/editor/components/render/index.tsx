@@ -101,7 +101,6 @@ export const RenderNode = ({ render }: any) => {
         ? ReactDOM.createPortal(
           <IndicatorDiv
           ref={() => currentRef}
-          className="px-2 py-2 text-white bg-primary fixed flex items-center"
           style={{
             left: getPos(dom!).left,
             top: getPos(dom!).top,

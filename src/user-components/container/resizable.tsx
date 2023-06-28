@@ -27,7 +27,9 @@ export const Resizable = ({ setProp }: ResizableProps) => {
         newHeight = containerHeight - deltaY;
       }
 
-      setProp((props: ContainerProps) => (props!.width = newWidth));
+      setProp((props: ContainerProps) => {
+        props!.width = newWidth;
+      });
     };
 
     const handleMouseUp = () => {
