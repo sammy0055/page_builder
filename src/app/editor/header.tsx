@@ -18,10 +18,14 @@ export default function Header() {
     enabled: state.options.enabled,
   }));
 
-  const [_, dispatch] = useEditorContext();
+  const [{ isEditable }, dispatch] = useEditorContext();
 
   const showComponentPanel = (value: boolean) => {
     dispatch({ type: "ISCOMPONENT", payload: value });
+  };
+
+  const finishediting = () => {
+    dispatch({ type: "ISEDITABLE", payload: !isEditable });
   };
 
   const saveNode = () => {
@@ -41,6 +45,7 @@ export default function Header() {
       </span>
       <nav className={styles.NavText}>
         <NavIcons
+          handler={finishediting}
           IconComponent={AiOutlineEye}
           TooltipContent="user-components"
         />

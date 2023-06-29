@@ -5,6 +5,7 @@ import { ContainerSettings } from "./containerSettings";
 import { commonStyles } from "@/utils/common-styles";
 import { ReactNode } from "react";
 import styles from "./container.module.css";
+import { useEditorContext } from "@/app/context/editor-context";
 export interface ContainerProps extends Styles {
   children?: ReactNode;
   border?: string;
@@ -20,7 +21,7 @@ export const ContainerDefaultProps = {
 };
 
 export const Container = (props: ContainerProps) => {
-  const editable = true;
+  const [{ isEditable }] = useEditorContext();
   const commoncss = commonStyles(props);
   const css: any = {
     ...commoncss,
@@ -52,7 +53,7 @@ export const Container = (props: ContainerProps) => {
 
   const edit = isActive
     ? styles.Container
-    : editable
+    : isEditable
     ? styles.ContainerMain
     : "";
   return (

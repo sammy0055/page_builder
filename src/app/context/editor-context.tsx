@@ -4,14 +4,16 @@ import { createContext, useContext, useReducer } from "react";
 interface EditorContextState {
   isComponents: boolean;
   isStyles: boolean;
+  isEditable: boolean;
 }
 
 enum EditorContextActionKind {
   ISCOMPONENT = "ISCOMPONENT",
+  ISEDITABLE = "ISEDITABLE",
 }
 
 interface EditorContextAction {
-  type: "ISCOMPONENT" | "ISTYLES";
+  type: "ISCOMPONENT" | "ISTYLES" | "ISEDITABLE";
   payload: boolean;
 }
 
@@ -21,12 +23,15 @@ export const useEditorGlobalState = () => {
   const globalState: EditorContextState = {
     isComponents: false,
     isStyles: true,
+    isEditable: false,
   };
 
   const reducer = (state: any, action: EditorContextAction) => {
     switch (action.type) {
       case EditorContextActionKind.ISCOMPONENT:
         return { ...state, isComponents: action.payload };
+      case EditorContextActionKind.ISEDITABLE:
+        return { ...state, isEditable: action.payload };
       default:
         return state;
     }
