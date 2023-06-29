@@ -3,6 +3,7 @@ import { useEditor } from "@craftjs/core";
 import styles from "../styles/sidebar.module.css";
 import React from "react";
 import { useEditorContext } from "@/app/context/editor-context";
+import { ComponentBox } from "./dragable-components";
 const SideBar: React.FC = () => {
   const { selected } = useEditor((state, query) => {
     const [currentNodeId]: any = state.events.selected;
@@ -29,13 +30,17 @@ const SideBar: React.FC = () => {
     <aside className={`${styles.sidebar_container}`}>
       <div className="content">
         <div>
-          <p className={`${styles.ToolboxHeading}`}>{!isComponents ? "toolbox": "compnent"}</p>
+          <p className={`${styles.ToolboxHeading}`}>
+            {!isComponents ? "toolbox" : "component"}
+          </p>
           {!isComponents ? (
             <div>
               {selected?.settings && React.createElement(selected.settings)}
             </div>
           ) : (
-            <div>components</div>
+            <div>
+              <ComponentBox />
+            </div>
           )}
         </div>
       </div>
