@@ -2,6 +2,7 @@
 import { useEditor } from "@craftjs/core";
 import styles from "../styles/sidebar.module.css";
 import React from "react";
+import { useEditorContext } from "@/app/context/editor-context";
 const SideBar: React.FC = () => {
   const { selected } = useEditor((state, query) => {
     const [currentNodeId]: any = state.events.selected;
@@ -22,14 +23,20 @@ const SideBar: React.FC = () => {
       selected,
     };
   });
+
+  const [{ isComponents }, _] = useEditorContext();
   return (
     <aside className={`${styles.sidebar_container}`}>
       <div className="content">
         <div>
-          <p className={`${styles.ToolboxHeading}`}>ToolBox</p>
-          <div>
+          <p className={`${styles.ToolboxHeading}`}>{!isComponents ? "toolbox": "compnent"}</p>
+          {!isComponents ? (
+            <div>
               {selected?.settings && React.createElement(selected.settings)}
-          </div>
+            </div>
+          ) : (
+            <div>components</div>
+          )}
         </div>
       </div>
     </aside>

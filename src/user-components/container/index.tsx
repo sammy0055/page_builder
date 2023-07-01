@@ -26,16 +26,15 @@ export const Container = (props: ContainerProps) => {
     ...commoncss,
     // border: editable ? "1px solid black" : "none",
     position: "relative",
-    width: props?.width || 100,
-    height: `${props?.height}vh` || "none",
-    backgroundColor: props?.backgroundColor
-      ? `${props?.backgroundColor}`
-      : "auto",
-    display: props?.display || "auto",
+    width: props?.width,
+    maxWidth: "100%",
+    height: `${props?.height}vh`,
+    backgroundColor: props?.backgroundColor,
+    display: props?.display,
     justifyContent: props?.justifyContent || "auto",
     alignItems: props?.alignItems || "auto",
-    flexDirection: props?.flexDirection || "auto",
-    flexWrap: props?.flexWrap || "nowrap",
+    flexDirection: props?.flexDirection ,
+    flexWrap: props?.flexWrap ,
   };
 
   const {
