@@ -34,8 +34,8 @@ export const Container = (props: ContainerProps) => {
     display: props?.display,
     justifyContent: props?.justifyContent || "auto",
     alignItems: props?.alignItems || "auto",
-    flexDirection: props?.flexDirection ,
-    flexWrap: props?.flexWrap ,
+    flexDirection: props?.flexDirection,
+    flexWrap: props?.flexWrap,
   };
 
   const {

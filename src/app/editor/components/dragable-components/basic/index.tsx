@@ -24,7 +24,7 @@ export const Basic = () => {
           UserComponent={
             <Typography
               tagName="p"
-              children="welcome, please change templat text"
+              children="welcome, please change template text"
             />
           }
         />

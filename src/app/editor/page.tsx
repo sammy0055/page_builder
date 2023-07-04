@@ -14,6 +14,7 @@ import { Wrapper } from "./components/render/wrapper";
 import { Container2 } from "@/user-components/container/constainer-two";
 import MyDiv from "@/user-components/container/resizer1";
 import { useEditorContext } from "../context/editor-context";
+import { ImageWrapper } from "@/user-components/Image";
 
 export default function editor() {
   const [{ isEditable }] = useEditorContext();
@@ -21,13 +22,11 @@ export default function editor() {
     <>
       <Editor
         resolver={{
-          NewsBar,
           Typography,
           SideBar,
           Header,
           Container,
-          HeroSection,
-          Home,
+          ImageWrapper,
           ParentContainer,
         }}
         enabled={isEditable}
@@ -39,7 +38,7 @@ export default function editor() {
           <Frame>
             <section className={`${styles.main_page} page-container`}>
               <Element is={ParentContainer} id="ParentContainers" canvas>
-                
+                <ImageWrapper />
               </Element>
             </section>
           </Frame>
