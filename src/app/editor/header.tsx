@@ -14,11 +14,13 @@ import Tooltip from "./components/tooltip";
 import { useEditorContext } from "../context/editor-context";
 
 export default function Header() {
-  const { query, actions, enabled } = useEditor((state, query) => ({
-    enabled: state.options.enabled,
-    canUndo: query.history.canUndo(),
-    canRedo: query.history.canRedo(),
-  }));
+  const { query, actions, enabled, canUndo, canRedo } = useEditor(
+    (state, query) => ({
+      enabled: state.options.enabled,
+      canUndo: query.history.canUndo(),
+      canRedo: query.history.canRedo(),
+    })
+  );
 
   const [{ isEditable }, dispatch] = useEditorContext();
 
@@ -56,11 +58,13 @@ export default function Header() {
         <NavIcons
           IconComponent={GrUndo}
           TooltipContent="Undo"
+          disabled={!canUndo}
           handler={() => actions.history.undo()}
         />
         <NavIcons
           IconComponent={GrRedo}
           TooltipContent="Redo"
+          disabled={!canRedo}
           handler={() => actions.history.redo()}
         />
         <NavIcons
@@ -85,18 +89,22 @@ export default function Header() {
 
 interface NavIconsProps {
   TooltipContent: string;
+  disabled?: boolean;
   IconComponent: any;
   handler?: () => void;
 }
 const NavIcons: React.FC<NavIconsProps> = ({
   TooltipContent,
   IconComponent,
+  disabled,
   handler,
 }) => {
   return (
     <div onClick={handler}>
       <Tooltip content={TooltipContent} placement="bottom">
-        <IconWrapper>{<IconComponent size={20} />}</IconWrapper>
+        <IconWrapper disabled={disabled}>
+          {<IconComponent size={20} color={disabled && "gray"} />}
+        </IconWrapper>
       </Tooltip>
     </div>
   );
