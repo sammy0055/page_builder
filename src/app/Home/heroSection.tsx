@@ -9,7 +9,7 @@ export const HeroSection = () => {
   return (
     <>
       <Element is={Container} id="heroSec">
-        <Typography tagName="h1">hello </Typography>
+        <Typography tagName="h1"/>
       </Element>
     </>
   );

@@ -4,9 +4,10 @@ import { TooltipContent, TooltipTrigger, TooltipWrapper } from "./style";
 interface TooltipProps {
   content: string;
   children: ReactNode;
+  placement?:"bottom"| "top"
 }
 
-export const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
+export const Tooltip: React.FC<TooltipProps> = ({ content,placement, children }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleMouseEnter = () => {
@@ -25,7 +26,7 @@ export const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
       >
         {children}
       </TooltipTrigger>
-      <TooltipContent visible={isVisible}>{content}</TooltipContent>
+      <TooltipContent placement={placement} visible={isVisible}>{content}</TooltipContent>
     </TooltipWrapper>
   );
 };

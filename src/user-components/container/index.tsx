@@ -3,9 +3,8 @@ import { useNode, useEditor } from "@craftjs/core";
 import { Resizable } from "./resizable";
 import { ContainerSettings } from "./containerSettings";
 import { commonStyles } from "@/utils/common-styles";
-import { ReactNode } from "react";
+import { ReactNode} from "react";
 import styles from "./container.module.css";
-import { useEditorContext } from "@/app/context/editor-context";
 export interface ContainerProps extends Styles {
   children?: ReactNode;
   border?: string;
@@ -23,7 +22,6 @@ export const ContainerDefaultProps = {
 };
 
 export const Container = (props: ContainerProps) => {
-  const [{ isEditable }] = useEditorContext();
   const commoncss = commonStyles(props);
   const css: any = {
     ...commoncss,
@@ -32,6 +30,7 @@ export const Container = (props: ContainerProps) => {
     width: props?.width,
     maxWidth: "100%",
     height: `${props?.height}vh`,
+    maxHeight: `${100}vh`,
     backgroundColor: props?.backgroundColor,
     display: props?.display,
     justifyContent: props?.justifyContent,
@@ -45,8 +44,9 @@ export const Container = (props: ContainerProps) => {
     connectors: { connect, drag },
     actions: { setProp },
   } = useNode();
-  const { isActive } = useEditor((_, query) => ({
+  const { isActive, enabled } = useEditor((state, query) => ({
     isActive: query.getEvent("selected").contains(id),
+    enabled: state.options.enabled,
   }));
 
   const handleChnages = () => {
@@ -55,7 +55,7 @@ export const Container = (props: ContainerProps) => {
 
   const edit = isActive
     ? styles.Container
-    : isEditable
+    : enabled
     ? styles.ContainerMain
     : "";
   return (

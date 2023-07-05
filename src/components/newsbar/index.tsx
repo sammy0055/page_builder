@@ -6,7 +6,7 @@ export const NewsBar: React.FC = () => {
   return (
     <>
       <Element is="div" id="same" className={styles.Container}>
-        <Typography tagName="p">hello sam</Typography>
+        <Typography tagName="p" />
       </Element>
     </>
   );

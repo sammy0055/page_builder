@@ -3,6 +3,7 @@ import styled from "styled-components";
 type BtnWrapperProps = {
   isSelected?: boolean;
 };
+
 export const BtnWrapper = styled.button<BtnWrapperProps>`
   padding: 7px;
   border: none;

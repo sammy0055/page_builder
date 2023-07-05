@@ -14,8 +14,10 @@ import Tooltip from "./components/tooltip";
 import { useEditorContext } from "../context/editor-context";
 
 export default function Header() {
-  const { query } = useEditor((state) => ({
+  const { query, actions, enabled } = useEditor((state, query) => ({
     enabled: state.options.enabled,
+    canUndo: query.history.canUndo(),
+    canRedo: query.history.canRedo(),
   }));
 
   const [{ isEditable }, dispatch] = useEditorContext();
@@ -45,26 +47,36 @@ export default function Header() {
       </span>
       <nav className={styles.NavText}>
         <NavIcons
-          handler={finishediting}
+          handler={() =>
+            actions.setOptions((options) => (options.enabled = !enabled))
+          }
           IconComponent={AiOutlineEye}
-          TooltipContent="user-components"
+          TooltipContent="fullscreen"
         />
-        <NavIcons IconComponent={GrUndo} TooltipContent="user-components" />
-        <NavIcons IconComponent={GrRedo} TooltipContent="user-components" />
+        <NavIcons
+          IconComponent={GrUndo}
+          TooltipContent="Undo"
+          handler={() => actions.history.undo()}
+        />
+        <NavIcons
+          IconComponent={GrRedo}
+          TooltipContent="Redo"
+          handler={() => actions.history.redo()}
+        />
         <NavIcons
           handler={saveNode}
           IconComponent={AiOutlineSave}
-          TooltipContent="user-components"
+          TooltipContent="save"
         />
         <NavIcons
           handler={() => showComponentPanel(false)}
           IconComponent={CgStyle}
-          TooltipContent="user-components"
+          TooltipContent="styles"
         />
         <NavIcons
           handler={() => showComponentPanel(true)}
           IconComponent={TbComponents}
-          TooltipContent="user-components"
+          TooltipContent="components"
         />
       </nav>
     </header>
@@ -83,7 +95,7 @@ const NavIcons: React.FC<NavIconsProps> = ({
 }) => {
   return (
     <div onClick={handler}>
-      <Tooltip content={TooltipContent}>
+      <Tooltip content={TooltipContent} placement="bottom">
         <IconWrapper>{<IconComponent size={20} />}</IconWrapper>
       </Tooltip>
     </div>

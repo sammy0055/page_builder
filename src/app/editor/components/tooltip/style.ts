@@ -27,13 +27,16 @@ const fadeOut = keyframes`
   }
 `;
 
-
-export const TooltipContent = styled.div<{ visible: boolean }>`
+export const TooltipContent = styled.div<{
+  visible: boolean;
+  placement?: "bottom"| "top";
+}>`
   position: absolute;
   z-index: 1;
   bottom: 100%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: ${({ placement }) =>
+    placement === "bottom" ? "translateY(200%)" : "translateX(-50%)"};
   padding: 8px;
   background-color: #333;
   color: #fff;

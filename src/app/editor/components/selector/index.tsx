@@ -37,8 +37,8 @@ export const Selector: React.FC<SelectorProps> = ({
           name={name}
           id="size"
         >
-          {selectOptionData.map((size) => (
-            <option value={size}>{size}</option>
+          {selectOptionData.map((size, index) => (
+            <option key={index} value={size}>{size}</option>
           ))}
         </select>
       </span>

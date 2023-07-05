@@ -4,10 +4,10 @@ import { useNode } from "@craftjs/core";
 import { Spacing } from "@/types";
 import { commonStyles } from "@/utils/common-styles";
 import { TypographySettings } from "./typography-settings";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export interface TypographyProps extends Partial<Spacing> {
-  children: string;
+  Text?: string;
   fontSize?: number;
   fontWeight?: number;
   color?: string;
@@ -38,23 +38,21 @@ export const Typography = (props: TypographyProps) => {
   }, [hasSelectedNode]);
 
   return (
-    <span
-      ref={(ref: any) => connect(drag(ref))}
+    
+    <ContentEditable
+      innerRef={(ref: any) => connect(drag(ref))}
+      disabled={!editable}
+      html={props?.Text!}
+      tagName={props.tagName}
+      style={css}
       onClick={() => setEditable(true)}
-    >
-      <ContentEditable
-        disabled={!editable}
-        html={props.children}
-        tagName={props.tagName}
-        style={css}
-        onChange={(e: ContentEditableEvent) =>
-          setProp(
-            (props: TypographyProps) =>
-              (props.children = e.target.value.replace(/<\/?[^>]+(>|$)/g, ""))
-          )
-        }
-      />
-    </span>
+      onChange={(e: ContentEditableEvent) =>
+        setProp(
+          (props: TypographyProps) =>
+            (props.Text = e.target.value.replace(/<\/?[^>]+(>|$)/g, ""))
+        )
+      }
+    />
   );
 };
 
