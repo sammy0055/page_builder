@@ -4,6 +4,8 @@ import Dropdown from "@/app/editor/components/dropdown";
 import { Dimention } from "@/app/editor/components/dimension";
 import { Slider } from "@/app/editor/components/slider";
 import { useCustomStyles } from "@/hooks/custom-styles";
+import { Select } from "@/app/editor/components/select";
+import { useTypographySettings } from "@/hooks/typography";
 export const TypographySettings = () => {
   const {
     handleChangeSpacing,
@@ -17,9 +19,10 @@ export const TypographySettings = () => {
     marginRight,
     marginLeft,
     color,
-    fontSize,
-    fontWeight,
   } = useCustomStyles();
+
+  const { fontSize, fontWeight, handleTypographySettings } =
+    useTypographySettings();
 
   const fontSizesArray: number[] = [12, 14, 16, 18, 20, 24, 28, 32, 36, 40];
   const fontWeights: number[] = [100, 200, 300, 400, 500, 600, 700, 800, 900];
@@ -39,17 +42,22 @@ export const TypographySettings = () => {
       <Dropdown label="Typography">
         <Selector
           fontSize={fontSize}
-          handleChange={handleChangeSpacing}
+          handleChange={handleTypographySettings}
           label="size"
           name="fontSize"
           selectOptionData={fontSizesArray}
         />
         <Selector
           fontWeight={fontWeight}
-          handleChange={handleChangeSpacing}
+          handleChange={handleTypographySettings}
           label="weight"
           name="fontWeight"
           selectOptionData={fontWeights}
+        />
+        <Select
+          selectOptionData={["p", "h1", "h2", "h3"]}
+          name={"tagName"}
+          handleChange={handleTypographySettings}
         />
         <ColorPicker
           color={color}

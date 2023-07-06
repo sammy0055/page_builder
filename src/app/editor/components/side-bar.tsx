@@ -5,7 +5,7 @@ import React from "react";
 import { useEditorContext } from "@/app/context/editor-context";
 import { ComponentBox } from "./dragable-components";
 const SideBar: React.FC = () => {
-  const { selected } = useEditor((state, query) => {
+  const { selected, actions } = useEditor((state, query) => {
     const [currentNodeId]: any = state.events.selected;
     let selected;
 
@@ -36,6 +36,11 @@ const SideBar: React.FC = () => {
           {!isComponents ? (
             <div>
               {selected?.settings && React.createElement(selected.settings)}
+              {selected?.isDeletable && (
+                <button onClick={() => actions.delete(selected.id)}>
+                  delete
+                </button>
+              )}
             </div>
           ) : (
             <div>

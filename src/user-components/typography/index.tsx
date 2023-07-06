@@ -1,6 +1,6 @@
 "use client";
 import ContentEditable, { ContentEditableEvent } from "react-contenteditable";
-import { useNode } from "@craftjs/core";
+import { useNode, useEditor } from "@craftjs/core";
 import { Spacing } from "@/types";
 import { commonStyles } from "@/utils/common-styles";
 import { TypographySettings } from "./typography-settings";
@@ -23,7 +23,11 @@ export const Typography = (props: TypographyProps) => {
     hasSelectedNode: state.events.selected,
     hasDraggedNode: state.events.dragged,
   }));
-  const [editable, setEditable] = useState(false);
+
+  const { enabled } = useEditor((state, query) => ({
+    enabled: state.options.enabled,
+  }));
+  // const [editable, setEditable] = useState(false);
 
   const commoncss = commonStyles(props);
   const css = {
@@ -33,19 +37,18 @@ export const Typography = (props: TypographyProps) => {
     ...commoncss,
   };
 
-  useEffect(() => {
-    !hasSelectedNode && setEditable(false);
-  }, [hasSelectedNode]);
+  // useEffect(() => {
+  //   !hasSelectedNode && setEditable(false);
+  // }, [hasSelectedNode]);
 
   return (
     
     <ContentEditable
       innerRef={(ref: any) => connect(drag(ref))}
-      disabled={!editable}
+      disabled={!enabled}
       html={props?.Text!}
       tagName={props.tagName}
       style={css}
-      onClick={() => setEditable(true)}
       onChange={(e: ContentEditableEvent) =>
         setProp(
           (props: TypographyProps) =>
