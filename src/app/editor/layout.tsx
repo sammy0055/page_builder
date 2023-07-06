@@ -1,6 +1,4 @@
-"use client";
 import { Outfit } from "next/font/google";
-import { EditorContext, useEditorGlobalState } from "../context/editor-context";
 const outfit = Outfit({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
@@ -16,11 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main>
-          <EditorContext.Provider value={useEditorGlobalState()}>
-            {children}
-          </EditorContext.Provider>
-        </main>
+        <main>{children}</main>
       </body>
     </html>
   );
