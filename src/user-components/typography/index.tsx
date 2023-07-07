@@ -66,7 +66,9 @@ export const Typography = (props: TypographyProps) => {
 
 Typography.craft = {
   props: {
-    style: { fontSize: 16 },
+    fontSize: 16,
+    fontWeight: 400,
+    tagName: "p",
   },
   related: {
     settings: TypographySettings,
