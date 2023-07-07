@@ -24,10 +24,10 @@ export const Typography = (props: TypographyProps) => {
     hasDraggedNode: state.events.dragged,
   }));
 
-  const { enabled } = useEditor((state, query) => ({
+  const { enabled } = useEditor((state) => ({
     enabled: state.options.enabled,
   }));
-  // const [editable, setEditable] = useState(false);
+  const [editable, setEditable] = useState(enabled);
 
   const commoncss = commonStyles(props);
   const css = {
@@ -37,18 +37,23 @@ export const Typography = (props: TypographyProps) => {
     ...commoncss,
   };
 
-  // useEffect(() => {
-  //   !hasSelectedNode && setEditable(false);
-  // }, [hasSelectedNode]);
+  useEffect(() => {
+    !hasSelectedNode && setEditable(true);
+  }, [hasSelectedNode]);
+
+  const handler = () => {
+    if (enabled) setEditable(false);
+    else setEditable(true);
+  };
 
   return (
-    
     <ContentEditable
       innerRef={(ref: any) => connect(drag(ref))}
-      disabled={!enabled}
+      disabled={editable}
       html={props?.Text!}
       tagName={props.tagName}
       style={css}
+      onClick={handler}
       onChange={(e: ContentEditableEvent) =>
         setProp(
           (props: TypographyProps) =>

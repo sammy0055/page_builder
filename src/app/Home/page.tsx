@@ -8,24 +8,25 @@ import { LoadStateNodes } from "@/components/state-loader";
 import { Container } from "@/user-components/container";
 import { HeroSection } from "./heroSection";
 import { Home } from "./home";
+import SideBar from "../editor/components/side-bar";
+import { ImageWrapper } from "@/user-components/Image";
+import Image from "next/image";
 
 export default function about() {
   return (
     <>
       <Editor
         resolver={{
-          NewsBar,
           Typography,
+          SideBar,
+          Header,
           Container,
-          HeroSection,
-          Home,
+          ImageWrapper,
+          // Image,
         }}
       >
-        {/* <LoadStateNodes /> */}
+        <LoadStateNodes />
         <Frame>
-          <div>
-            <Home />
-          </div>
         </Frame>
       </Editor>
     </>

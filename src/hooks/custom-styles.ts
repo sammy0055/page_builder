@@ -4,6 +4,7 @@ import { useNode } from "@craftjs/core";
 export const useCustomStyles = () => {
   const {
     actions: { setProp },
+    width,
     height,
     padding,
     paddingTop,
@@ -24,6 +25,7 @@ export const useCustomStyles = () => {
     flexWrap,
     imageUrl,
   } = useNode((node) => ({
+    width: node.data?.props?.width as number,
     height: node.data?.props?.height as number,
     color: node.data.props?.color as string,
     backgroundColor: node.data?.props?.backgroundColor as string,
@@ -76,6 +78,7 @@ export const useCustomStyles = () => {
     handleChangeColorPicker,
     handleChangeLayout,
     handleImageUrl,
+    width,
     height,
     paddingTop,
     paddingBottom,

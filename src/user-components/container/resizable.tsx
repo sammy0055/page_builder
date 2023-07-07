@@ -1,31 +1,21 @@
 import { useRef } from "react";
 import styles from "./container.module.css";
 import { ContainerProps } from ".";
+import { useCustomStyles } from "@/hooks/custom-styles";
 
 interface ResizableProps {
   setProp: (cb: any, throttleRate?: number | undefined) => void;
 }
 export const Resizable = ({ setProp }: ResizableProps) => {
   const containerRef = useRef<any>(null);
+  const {width} = useCustomStyles();
   const handleMouseDown = (e: any, direction: string) => {
     e.preventDefault();
     const startX = e.clientX;
-    const startY = e.clientY;
-    const containerWidth = containerRef.current.offsetWidth;
-    const containerHeight = containerRef.current.offsetHeight;
 
     const handleMouseMove = (e: any) => {
       const deltaX = e.clientX - startX;
-      const deltaY = e.clientY - startY;
-      let newWidth = containerWidth + deltaX;
-      let newHeight = containerHeight + deltaY;
-
-      if (direction.includes("w")) {
-        newWidth = containerWidth - deltaX;
-      }
-      if (direction.includes("n")) {
-        newHeight = containerHeight - deltaY;
-      }
+      let newWidth = width + deltaX;
 
       setProp((props: ContainerProps) => {
         props!.width = newWidth;

@@ -3,7 +3,7 @@ import { useNode, useEditor } from "@craftjs/core";
 import { Resizable } from "./resizable";
 import { ContainerSettings } from "./containerSettings";
 import { commonStyles } from "@/utils/common-styles";
-import { ReactNode} from "react";
+import { ReactNode } from "react";
 import styles from "./container.module.css";
 export interface ContainerProps extends Styles {
   children?: ReactNode;
@@ -27,7 +27,7 @@ export const Container = (props: ContainerProps) => {
     ...commoncss,
     // border: editable ? "1px solid black" : "none",
     position: "relative",
-    width: props?.width,
+    width: `${props?.width}px`,
     maxWidth: "100%",
     height: `${props?.height}vh`,
     maxHeight: `${100}vh`,
