@@ -1,4 +1,5 @@
 .sidebar_container {
+  width: 20vw;
   height: 92vh;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(230, 230, 230);

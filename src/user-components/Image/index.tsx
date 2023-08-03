@@ -54,14 +54,14 @@ export const ImageWrapper = (props: any) => {
       className={edit}
     >
       {isActive && <Resizable setProp={setProp} />}
-      <Image
+      {/* <Image
         ref={(ref: any) => connect(drag(ref))}
         src={props?.imageUrl}
         alt="continer"
         width={100}
         height={100}
         className={styles.Image}
-      />
+      /> */}
     </div>
   );
 };

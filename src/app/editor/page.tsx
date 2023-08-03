@@ -28,23 +28,18 @@ export default function Editor() {
           Header,
           Container,
           ImageWrapper,
-          Image,
           ParentContainer,
         }}
-        // enabled={false}
-        // onRender={RenderNode}
       >
         {/* <LoadStateNodes /> */}
         <Header />
         <View>
           <Frame>
-            <section className={`${styles.main_page} page-container`}>
-              <Element
-                is={ParentContainer}
-                id="ParentContainers"
-                canvas
-              ></Element>
-            </section>
+            <Element
+              is={ParentContainer}
+              id="ParentContainers"
+              canvas
+            ></Element>
           </Frame>
           <SideBar />
         </View>
@@ -53,7 +48,7 @@ export default function Editor() {
   );
 }
 
-const ParentContainer = ({ children }: any) => {
+export const ParentContainer = ({ children }: any) => {
   const css = {
     minHeight: "100vh",
     width: "100%",

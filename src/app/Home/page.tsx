@@ -1,6 +1,6 @@
 "use client";
 
-import { Header } from "./header";
+import  Header  from "../editor/header";
 import { Editor, Frame } from "@craftjs/core";
 import { NewsBar } from "@/components/newsbar";
 import { Typography } from "@/user-components/typography";
@@ -11,6 +11,7 @@ import { Home } from "./home";
 import SideBar from "../editor/components/side-bar";
 import { ImageWrapper } from "@/user-components/Image";
 import Image from "next/image";
+import { ParentContainer } from "../editor/page";
 
 export default function about() {
   return (
@@ -22,8 +23,9 @@ export default function about() {
           Header,
           Container,
           ImageWrapper,
-          // Image,
+          ParentContainer
         }}
+        enabled={false}
       >
         <LoadStateNodes />
         <Frame>
